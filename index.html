@@ -1,1 +1,817 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><meta name="description" content="Free online calculators for students. Percentage, CGPA, Age, BMI, Grade calculators. Study tools for JEE, NDA, ISC, CBSE students."><title>StudyTools India - Free Calculators & Tools for Students</title><style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);min-height:100vh;transition:background 0.5s ease}body.dark-mode{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}.container{max-width:1200px;margin:0 auto;padding:20px}header{text-align:center;padding:40px 20px;animation:fadeInDown 0.8s ease}.logo{font-size:3em;animation:bounce 2s infinite}h1{color:#fff;font-size:2.5em;margin:10px 0;text-shadow:2px 2px 4px rgba(0,0,0,0.3);animation:fadeInUp 0.8s ease}.tagline{color:#f0f0f0;font-size:1.2em;margin:10px 0}.search-container{max-width:600px;margin:30px auto;position:relative;animation:slideInUp 0.8s ease}.search-box{width:100%;padding:15px 50px 15px 20px;border:none;border-radius:50px;font-size:1em;box-shadow:0 10px 30px rgba(0,0,0,0.2);transition:all 0.3s ease}.search-box:focus{box-shadow:0 15px 40px rgba(0,0,0,0.3);transform:translateY(-2px);outline:none}.search-icon{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.3em;color:#764ba2}.dark-mode-toggle{position:fixed;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.5em;transition:all 0.3s ease;z-index:1000;backdrop-filter:blur(10px)}.dark-mode-toggle:hover{background:rgba(255,255,255,0.3);transform:rotate(180deg)}.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;padding:20px 0;animation:fadeIn 1s ease}.tool-card{background:rgba(255,255,255,0.95);border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:all 0.3s ease;animation:slideInUp 0.8s ease}.tool-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.2)}.tool-icon{font-size:3em;margin-bottom:15px}.tool-card h3{color:#764ba2;margin:15px 0;font-size:1.5em}.tool-card p{color:#666;margin-bottom:20px}.input-group{margin:15px 0}.input-group label{display:block;margin-bottom:5px;color:#666;font-size:0.9em}.input-group input,.input-group select{width:100%;padding:12px;border:2px solid #e0e0e0;border-radius:10px;font-size:1em;transition:all 0.3s ease}.input-group input:focus,.input-group select:focus{border-color:#764ba2;outline:none;box-shadow:0 0 10px rgba(118,75,162,0.2)}.calc-btn{width:100%;padding:15px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:10px;font-size:1.1em;cursor:pointer;transition:all 0.3s ease;margin-top:15px}.calc-btn:hover{transform:scale(1.02);box-shadow:0 5px 15px rgba(118,75,162,0.4)}.calc-btn:active{transform:scale(0.98)}.result{margin-top:20px;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:15px;color:#fff;text-align:center;font-size:1.5em;opacity:0;transform:translateY(20px);transition:all 0.5s ease}.result.show{opacity:1;transform:translateY(0)}.stats{display:flex;justify-content:space-around;margin:50px 0;padding:40px;background:rgba(255,255,255,0.95);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}.stat-item{text-align:center}.stat-number{font-size:3em;color:#764ba2;font-weight:bold;animation:countUp 2s ease}.stat-label{color:#666;font-size:1.1em;margin-top:10px}footer{background:rgba(255,255,255,0.95);padding:40px;border-radius:20px;text-align:center;margin-top:50px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}footer p{margin:10px 0;color:#666}.footer-links{margin:20px 0}footer a{color:#764ba2;text-decoration:none;margin:0 15px;transition:color 0.3s ease}footer a:hover{color:#667eea}@keyframes fadeInDown{from{opacity:0;transform:translateY(-50px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}@keyframes slideInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}@keyframes fadeIn{from{opacity:0}to{opacity:1}}@media(max-width:768px){.tools-grid{grid-template-columns:1fr}.stats{flex-direction:column;gap:30px}h1{font-size:2em}.logo{font-size:2em}}.hidden{display:none}.loading{display:inline-block;width:20px;height:20px;border:3px solid rgba(255,255,255,0.3);border-top-color:#fff;border-radius:50%;animation:spin 1s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style></head><body><button class='dark-mode-toggle' onclick='toggleDarkMode()' title='Toggle Dark Mode'>🌙</button><div class='container'><header><div class='logo'>🧮</div><h1>StudyTools India</h1><p class='tagline'>Free Calculators & Tools for Every Student</p></header><div class='search-container'><input type='text' class='search-box' id='searchBox' placeholder='Search calculators...' onkeyup='searchTools()'><span class='search-icon'>🔍</span></div><div class='tools-grid' id='toolsGrid'><div class='tool-card' data-tool='percentage'><div class='tool-icon'>📈</div><h3>Percentage Calculator</h3><p>Calculate percentage, increase, decrease</p><div class='input-group'><label>Value</label><input type='number' id='percValue' placeholder='Enter value'></div><div class='input-group'><label>Total</label><input type='number' id='percTotal' placeholder='Enter total'></div><button class='calc-btn' onclick='calcPercentage()'>Calculate</button><div class='result' id='percResult'></div></div><div class='tool-card' data-tool='cgpa'><div class='tool-icon'>🎓</div><h3>CGPA to Percentage</h3><p>Convert CGPA to Percentage (ISC/CBSE)</p><div class='input-group'><label>Enter CGPA</label><input type='number' step='0.01' id='cgpaValue' placeholder='e.g., 8.5'></div><div class='input-group'><label>CGPA Scale</label><select id='cgpaScale'><option value='10'>Out of 10</option><option value='4'>Out of 4</option></select></div><button class='calc-btn' onclick='calcCGPA()'>Convert</button><div class='result' id='cgpaResult'></div></div><div class='tool-card' data-tool='age'><div class='tool-icon'>🎂</div><h3>Age Calculator</h3><p>Calculate your exact age in years, months, days</p><div class='input-group'><label>Date of Birth</label><input type='date' id='dob'></div><button class='calc-btn' onclick='calcAge()'>Calculate Age</button><div class='result' id='ageResult'></div></div><div class='tool-card' data-tool='countdown'><div class='tool-icon'>⏰</div><h3>JEE/NDA Countdown</h3><p>Days remaining for your exam</p><div class='input-group'><label>Exam Date</label><input type='date' id='examDate'></div><button class='calc-btn' onclick='calcCountdown()'>Count Days</button><div class='result' id='countdownResult'></div></div><div class='tool-card' data-tool='bmi'><div class='tool-icon'>⚖️</div><h3>BMI Calculator</h3><p>Calculate Body Mass Index</p><div class='input-group'><label>Height (cm)</label><input type='number' id='height' placeholder='e.g., 170'></div><div class='input-group'><label>Weight (kg)</label><input type='number' id='weight' placeholder='e.g., 65'></div><button class='calc-btn' onclick='calcBMI()'>Calculate BMI</button><div class='result' id='bmiResult'></div></div><div class='tool-card' data-tool='grade'><div class='tool-icon'>📝</div><h3>Grade Calculator</h3><p>ISC/CBSE Grade Calculator</p><div class='input-group'><label>Marks Obtained</label><input type='number' id='marks' placeholder='e.g., 450'></div><div class='input-group'><label>Total Marks</label><input type='number' id='totalMarks' placeholder='e.g., 500'></div><button class='calc-btn' onclick='calcGrade()'>Get Grade</button><div class='result' id='gradeResult'></div></div></div><div class='stats'><div class='stat-item'><div class='stat-number'>500K+</div><div class='stat-label'>Students Helped</div></div><div class='stat-item'><div class='stat-number'>6</div><div class='stat-label'>Free Tools</div></div><div class='stat-item'><div class='stat-number'>100%</div><div class='stat-label'>Free Forever</div></div></div><footer><p>❤️ Made with love by Shashank Kushwaha | Class 11 ISC Student</p><div class='footer-links'><p>📧 Contact: <a href='mailto:return7521@gmail.com'>return7521@gmail.com</a></p><p>📸 Instagram: <a href='https://instagram.com/shashank_rt_' target='_blank'>@shashank_rt_</a></p></div><p>© 2025 StudyTools India. All calculators are free to use.</p></footer></div><script>function calcPercentage(){const v=parseFloat(document.getElementById('percValue').value);const t=parseFloat(document.getElementById('percTotal').value);if(!v||!t){alert('Please enter both values');return}const p=((v/t)*100).toFixed(2);const r=document.getElementById('percResult');r.textContent=`${p}%`;r.classList.add('show');setTimeout(()=>r.classList.remove('show'),5000)}function calcCGPA(){const c=parseFloat(document.getElementById('cgpaValue').value);const s=parseFloat(document.getElementById('cgpaScale').value);if(!c){alert('Please enter CGPA');return}const p=s===10?(c*9.5).toFixed(2):(c*25).toFixed(2);let g='';if(p>=90)g='A+ (Outstanding)';else if(p>=80)g='A (Excellent)';else if(p>=70)g='B+ (Very Good)';else if(p>=60)g='B (Good)';else if(p>=50)g='C (Average)';else g='D (Pass)';const r=document.getElementById('cgpaResult');r.innerHTML=`✅ ${p}%<br>Grade: ${g}`;r.classList.add('show');setTimeout(()=>r.classList.remove('show'),5000)}function calcAge(){const d=document.getElementById('dob').value;if(!d){alert('Please enter date of birth');return}const b=new Date(d);const t=new Date();let y=t.getFullYear()-b.getFullYear();let m=t.getMonth()-b.getMonth();let days=t.getDate()-b.getDate();if(days<0){m--;days+=30}if(m<0){y--;m+=12}const r=document.getElementById('ageResult');r.innerHTML=`🎉 ${y} years, ${m} months, ${days} days`;r.classList.add('show');setTimeout(()=>r.classList.remove('show'),5000)}function calcCountdown(){const e=document.getElementById('examDate').value;if(!e){alert('Please enter exam date');return}const ex=new Date(e);const t=new Date();const diff=Math.ceil((ex-t)/(1000*60*60*24));const r=document.getElementById('countdownResult');if(diff<0)r.innerHTML='⚠️ Exam date has passed';else if(diff===0)r.innerHTML='🔥 Exam is TODAY! Good luck!';else r.innerHTML=`⏳ ${diff} days remaining<br>💪 Keep pushing!`;r.classList.add('show');setTimeout(()=>r.classList.remove('show'),5000)}function calcBMI(){const h=parseFloat(document.getElementById('height').value);const w=parseFloat(document.getElementById('weight').value);if(!h||!w){alert('Please enter both height and weight');return}const bmi=((w/((h/100)**2)).toFixed(2));let cat='';if(bmi<18.5)cat='Underweight';else if(bmi<25)cat='Normal weight';else if(bmi<30)cat='Overweight';else cat='Obese';const r=document.getElementById('bmiResult');r.innerHTML=`BMI: ${bmi}<br>Category: ${cat}`;r.classList.add('show');setTimeout(()=>r.classList.remove('show'),5000)}function calcGrade(){const m=parseFloat(document.getElementById('marks').value);const t=parseFloat(document.getElementById('totalMarks').value);if(!m||!t){alert('Please enter both marks');return}const p=((m/t)*100).toFixed(2);let g='';if(p>=90)g='A+ Grade';else if(p>=80)g='A Grade';else if(p>=70)g='B+ Grade';else if(p>=60)g='B Grade';else if(p>=50)g='C Grade';else if(p>=40)g='D Grade';else g='Fail';const r=document.getElementById('gradeResult');r.innerHTML=`🎯 ${p}%<br>${g}`;r.classList.add('show');setTimeout(()=>r.classList.remove('show'),5000)}function toggleDarkMode(){document.body.classList.toggle('dark-mode');const btn=document.querySelector('.dark-mode-toggle');btn.textContent=document.body.classList.contains('dark-mode')?'☀️':'🌙';localStorage.setItem('darkMode',document.body.classList.contains('dark-mode'))}function searchTools(){const q=document.getElementById('searchBox').value.toLowerCase();const cards=document.querySelectorAll('.tool-card');cards.forEach(card=>{const tool=card.getAttribute('data-tool');const title=card.querySelector('h3').textContent.toLowerCase();const desc=card.querySelector('p').textContent.toLowerCase();if(tool.includes(q)||title.includes(q)||desc.includes(q)){card.style.display='block'}else{card.style.display='none'}})}window.onload=function(){if(localStorage.getItem('darkMode')==='true'){document.body.classList.add('dark-mode');document.querySelector('.dark-mode-toggle').textContent='☀️'}}</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="Free online calculators for students - 30+ tools including Percentage, CGPA, GPA, Age, BMI, Grade, Simple Interest, Compound Interest, Area, Volume, Temperature, Binary, Roman Numerals and more for JEE, NDA, ISC, CBSE students.">
+<title>StudyTools India - 30+ Free Calculators & Tools for Students</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#667eea 0%,#764ba2 50%,#f093fb 100%);min-height:100vh;transition:background 0.5s ease}
+body.dark-mode{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%)}
+.container{max-width:1200px;margin:0 auto;padding:20px}
+header{text-align:center;padding:40px 20px;animation:fadeInDown 0.8s ease}
+.logo{font-size:3em;animation:bounce 2s infinite}
+h1{color:#fff;font-size:2.5em;margin:10px 0;text-shadow:2px 2px 4px rgba(0,0,0,0.3);animation:fadeInUp 0.8s ease}
+.tagline{color:#f0f0f0;font-size:1.2em;margin:10px 0}
+.search-container{max-width:600px;margin:30px auto;position:relative;animation:slideInUp 0.8s ease}
+.search-box{width:100%;padding:15px 50px 15px 20px;border:none;border-radius:50px;font-size:1em;box-shadow:0 10px 30px rgba(0,0,0,0.2);transition:all 0.3s ease}
+.search-box:focus{box-shadow:0 15px 40px rgba(0,0,0,0.3);transform:translateY(-2px);outline:none}
+.search-icon{position:absolute;right:20px;top:50%;transform:translateY(-50%);font-size:1.3em;color:#764ba2}
+.dark-mode-toggle{position:fixed;top:20px;right:20px;background:rgba(255,255,255,0.2);border:none;border-radius:50%;width:50px;height:50px;cursor:pointer;font-size:1.5em;transition:all 0.3s ease;z-index:1000;backdrop-filter:blur(10px)}
+.dark-mode-toggle:hover{background:rgba(255,255,255,0.3);transform:rotate(180deg)}
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:30px;padding:20px 0;animation:fadeIn 1s ease}
+.tool-card{background:rgba(255,255,255,0.95);border-radius:20px;padding:30px;box-shadow:0 10px 30px rgba(0,0,0,0.1);transition:all 0.3s ease;animation:slideInUp 0.8s ease}
+.tool-card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.2)}
+.tool-icon{font-size:3em;margin-bottom:15px}
+.tool-card h3{color:#764ba2;margin:15px 0;font-size:1.5em}
+.tool-card p{color:#666;margin-bottom:20px}
+.input-group{margin:15px 0}
+.input-group label{display:block;margin-bottom:5px;color:#666;font-size:0.9em}
+.input-group input,.input-group select{width:100%;padding:12px;border:2px solid #e0e0e0;border-radius:10px;font-size:1em;transition:all 0.3s ease}
+.input-group input:focus,.input-group select:focus{border-color:#764ba2;outline:none;box-shadow:0 0 10px rgba(118,75,162,0.2)}
+.calc-btn{width:100%;padding:15px;background:linear-gradient(135deg,#667eea,#764ba2);color:#fff;border:none;border-radius:10px;font-size:1.1em;cursor:pointer;transition:all 0.3s ease;margin-top:15px}
+.calc-btn:hover{transform:scale(1.02);box-shadow:0 5px 15px rgba(118,75,162,0.4)}
+.calc-btn:active{transform:scale(0.98)}
+.result{margin-top:20px;padding:20px;background:linear-gradient(135deg,#667eea,#764ba2);border-radius:15px;color:#fff;text-align:center;font-size:1.2em;opacity:0;transform:translateY(20px);transition:all 0.5s ease}
+.result.show{opacity:1;transform:translateY(0)}
+.stats{display:flex;justify-content:space-around;margin:50px 0;padding:40px;background:rgba(255,255,255,0.95);border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+.stat-item{text-align:center}
+.stat-number{font-size:3em;color:#764ba2;font-weight:bold}
+.stat-label{color:#666;font-size:1.1em;margin-top:10px}
+footer{background:rgba(255,255,255,0.95);padding:40px;border-radius:20px;text-align:center;margin-top:50px;box-shadow:0 10px 30px rgba(0,0,0,0.1)}
+footer p{margin:10px 0;color:#666}
+footer a{color:#764ba2;text-decoration:none;margin:0 15px;transition:color 0.3s ease}
+footer a:hover{color:#667eea}
+@keyframes fadeInDown{from{opacity:0;transform:translateY(-50px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@media(max-width:768px){.tools-grid{grid-template-columns:1fr}.stats{flex-direction:column;gap:30px}h1{font-size:2em}.logo{font-size:2em}}
+</style>
+</head>
+<body>
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">🌙</button>
+<div class="container">
+<header>
+<div class="logo">🧮</div>
+<h1>StudyTools India</h1>
+<p class="tagline">Free Calculators & Tools for Every Student</p>
+</header>
+<div class="search-container">
+<input type="text" class="search-box" id="searchBox" placeholder="Search calculators..." onkeyup="searchTools()">
+<span class="search-icon">🔍</span>
+</div>
+<div class="tools-grid">
+
+<!-- Percentage Calculator -->
+<div class="tool-card" data-tool="percentage">
+<div class="tool-icon">📈</div>
+<h3>Percentage Calculator</h3>
+<p>Calculate percentage, increase, decrease</p>
+<div class="input-group">
+<label>Value</label>
+<input type="number" id="perc-value" placeholder="Enter value">
+</div>
+<div class="input-group">
+<label>Total</label>
+<input type="number" id="perc-total" placeholder="Enter total">
+</div>
+<button class="calc-btn" onclick="calcPercentage()">Calculate</button>
+<div class="result" id="perc-result"></div>
+</div>
+
+<!-- CGPA to Percentage -->
+<div class="tool-card" data-tool="cgpa">
+<div class="tool-icon">🎓</div>
+<h3>CGPA to Percentage</h3>
+<p>Convert CGPA to Percentage (ISC/CBSE)</p>
+<div class="input-group">
+<label>Enter CGPA</label>
+<input type="number" step="0.01" id="cgpa-value" placeholder="e.g., 8.5">
+</div>
+<div class="input-group">
+<label>CGPA Scale</label>
+<select id="cgpa-scale">
+<option value="10">Out of 10</option>
+<option value="4">Out of 4</option>
+</select>
+</div>
+<button class="calc-btn" onclick="calcCGPA()">Convert</button>
+<div class="result" id="cgpa-result"></div>
+</div>
+
+<!-- Age Calculator -->
+<div class="tool-card" data-tool="age">
+<div class="tool-icon">🎂</div>
+<h3>Age Calculator</h3>
+<p>Calculate your exact age</p>
+<div class="input-group">
+<label>Date of Birth</label>
+<input type="date" id="dob">
+</div>
+<button class="calc-btn" onclick="calcAge()">Calculate Age</button>
+<div class="result" id="age-result"></div>
+</div>
+
+<!-- JEE/NDA Countdown -->
+<div class="tool-card" data-tool="countdown">
+<div class="tool-icon">⏰</div>
+<h3>JEE/NDA Countdown</h3>
+<p>Days remaining for your exam</p>
+<div class="input-group">
+<label>Exam Date</label>
+<input type="date" id="exam-date">
+</div>
+<button class="calc-btn" onclick="calcCountdown()">Count Days</button>
+<div class="result" id="countdown-result"></div>
+</div>
+
+<!-- BMI Calculator -->
+<div class="tool-card" data-tool="bmi">
+<div class="tool-icon">⚖️</div>
+<h3>BMI Calculator</h3>
+<p>Calculate Body Mass Index</p>
+<div class="input-group">
+<label>Height (cm)</label>
+<input type="number" id="height" placeholder="e.g., 170">
+</div>
+<div class="input-group">
+<label>Weight (kg)</label>
+<input type="number" id="weight" placeholder="e.g., 65">
+</div>
+<button class="calc-btn" onclick="calcBMI()">Calculate BMI</button>
+<div class="result" id="bmi-result"></div>
+</div>
+
+<!-- Grade Calculator -->
+<div class="tool-card" data-tool="grade">
+<div class="tool-icon">📝</div>
+<h3>Grade Calculator</h3>
+<p>ISC/CBSE Grade Calculator</p>
+<div class="input-group">
+<label>Marks Obtained</label>
+<input type="number" id="marks" placeholder="e.g., 450">
+</div>
+<div class="input-group">
+<label>Total Marks</label>
+<input type="number" id="total-marks" placeholder="e.g., 500">
+</div>
+<button class="calc-btn" onclick="calcGrade()">Get Grade</button>
+<div class="result" id="grade-result"></div>
+</div>
+
+<!-- GPA Calculator -->
+<div class="tool-card" data-tool="gpa">
+<div class="tool-icon">🎯</div>
+<h3>GPA Calculator</h3>
+<p>Calculate your GPA</p>
+<div class="input-group">
+<label>Enter grades (comma-separated): A,B+,A-</label>
+<input type="text" id="gpa-grades" placeholder="A,B+,A-,B">
+</div>
+<button class="calc-btn" onclick="calcGPA()">Calculate GPA</button>
+<div class="result" id="gpa-result"></div>
+</div>
+
+<!-- Percentage to CGPA -->
+<div class="tool-card" data-tool="perc-to-cgpa">
+<div class="tool-icon">🔄</div>
+<h3>Percentage to CGPA</h3>
+<p>Convert Percentage to CGPA</p>
+<div class="input-group">
+<label>Enter Percentage</label>
+<input type="number" step="0.01" id="perc-to-cgpa-value" placeholder="e.g., 85.5">
+</div>
+<div class="input-group">
+<label>CGPA Scale</label>
+<select id="perc-to-cgpa-scale">
+<option value="10">Out of 10</option>
+<option value="4">Out of 4</option>
+</select>
+</div>
+<button class="calc-btn" onclick="calcPercToCGPA()">Convert</button>
+<div class="result" id="perc-to-cgpa-result"></div>
+</div>
+
+<!-- Attendance Calculator -->
+<div class="tool-card" data-tool="attendance">
+<div class="tool-icon">📊</div>
+<h3>Attendance Calculator</h3>
+<p>Calculate attendance percentage</p>
+<div class="input-group">
+<label>Classes Attended</label>
+<input type="number" id="attended" placeholder="e.g., 80">
+</div>
+<div class="input-group">
+<label>Total Classes</label>
+<input type="number" id="total-classes" placeholder="e.g., 100">
+</div>
+<button class="calc-btn" onclick="calcAttendance()">Calculate</button>
+<div class="result" id="attendance-result"></div>
+</div>
+
+<!-- Average Calculator -->
+<div class="tool-card" data-tool="average">
+<div class="tool-icon">🧮</div>
+<h3>Average Calculator</h3>
+<p>Calculate mean/average of numbers</p>
+<div class="input-group">
+<label>Enter numbers (comma-separated)</label>
+<input type="text" id="avg-numbers" placeholder="10,20,30,40">
+</div>
+<button class="calc-btn" onclick="calcAverage()">Calculate Average</button>
+<div class="result" id="average-result"></div>
+</div>
+
+<!-- Simple Interest -->
+<div class="tool-card" data-tool="simple-interest">
+<div class="tool-icon">💵</div>
+<h3>Simple Interest</h3>
+<p>Calculate Simple Interest</p>
+<div class="input-group">
+<label>Principal (₹)</label>
+<input type="number" id="si-principal" placeholder="e.g., 10000">
+</div>
+<div class="input-group">
+<label>Rate (%)</label>
+<input type="number" step="0.1" id="si-rate" placeholder="e.g., 5">
+</div>
+<div class="input-group">
+<label>Time (years)</label>
+<input type="number" id="si-time" placeholder="e.g., 2">
+</div>
+<button class="calc-btn" onclick="calcSimpleInterest()">Calculate</button>
+<div class="result" id="si-result"></div>
+</div>
+
+<!-- Compound Interest -->
+<div class="tool-card" data-tool="compound-interest">
+<div class="tool-icon">💰</div>
+<h3>Compound Interest</h3>
+<p>Calculate Compound Interest</p>
+<div class="input-group">
+<label>Principal (₹)</label>
+<input type="number" id="ci-principal" placeholder="e.g., 10000">
+</div>
+<div class="input-group">
+<label>Rate (%)</label>
+<input type="number" step="0.1" id="ci-rate" placeholder="e.g., 5">
+</div>
+<div class="input-group">
+<label>Time (years)</label>
+<input type="number" id="ci-time" placeholder="e.g., 2">
+</div>
+<div class="input-group">
+<label>Compound Frequency</label>
+<select id="ci-freq">
+<option value="1">Annually</option>
+<option value="2">Semi-annually</option>
+<option value="4">Quarterly</option>
+<option value="12">Monthly</option>
+</select>
+</div>
+<button class="calc-btn" onclick="calcCompoundInterest()">Calculate</button>
+<div class="result" id="ci-result"></div>
+</div>
+
+<!-- Square Root Calculator -->
+<div class="tool-card" data-tool="square-root">
+<div class="tool-icon">√</div>
+<h3>Square Root Calculator</h3>
+<p>Find square root of a number</p>
+<div class="input-group">
+<label>Enter Number</label>
+<input type="number" id="sqrt-num" placeholder="e.g., 144">
+</div>
+<button class="calc-btn" onclick="calcSquareRoot()">Calculate</button>
+<div class="result" id="sqrt-result"></div>
+</div>
+
+<!-- Power Calculator -->
+<div class="tool-card" data-tool="power">
+<div class="tool-icon">🔺</div>
+<h3>Power Calculator</h3>
+<p>Calculate a^b (exponentiation)</p>
+<div class="input-group">
+<label>Base (a)</label>
+<input type="number" id="power-base" placeholder="e.g., 2">
+</div>
+<div class="input-group">
+<label>Exponent (b)</label>
+<input type="number" id="power-exp" placeholder="e.g., 3">
+</div>
+<button class="calc-btn" onclick="calcPower()">Calculate</button>
+<div class="result" id="power-result"></div>
+</div>
+
+<!-- LCM Calculator -->
+<div class="tool-card" data-tool="lcm">
+<div class="tool-icon">🔢</div>
+<h3>LCM Calculator</h3>
+<p>Least Common Multiple</p>
+<div class="input-group">
+<label>Enter numbers (comma-separated)</label>
+<input type="text" id="lcm-numbers" placeholder="12,18,24">
+</div>
+<button class="calc-btn" onclick="calcLCM()">Calculate LCM</button>
+<div class="result" id="lcm-result"></div>
+</div>
+
+<!-- HCF/GCD Calculator -->
+<div class="tool-card" data-tool="hcf">
+<div class="tool-icon">🔡</div>
+<h3>HCF/GCD Calculator</h3>
+<p>Highest Common Factor</p>
+<div class="input-group">
+<label>Enter numbers (comma-separated)</label>
+<input type="text" id="hcf-numbers" placeholder="12,18,24">
+</div>
+<button class="calc-btn" onclick="calcHCF()">Calculate HCF</button>
+<div class="result" id="hcf-result"></div>
+</div>
+
+<!-- Prime Number Checker -->
+<div class="tool-card" data-tool="prime">
+<div class="tool-icon">🔍</div>
+<h3>Prime Number Checker</h3>
+<p>Check if a number is prime</p>
+<div class="input-group">
+<label>Enter Number</label>
+<input type="number" id="prime-num" placeholder="e.g., 17">
+</div>
+<button class="calc-btn" onclick="checkPrime()">Check</button>
+<div class="result" id="prime-result"></div>
+</div>
+
+<!-- Factorial Calculator -->
+<div class="tool-card" data-tool="factorial">
+<div class="tool-icon">‼️</div>
+<h3>Factorial Calculator</h3>
+<p>Calculate n!</p>
+<div class="input-group">
+<label>Enter Number</label>
+<input type="number" id="fact-num" placeholder="e.g., 5">
+</div>
+<button class="calc-btn" onclick="calcFactorial()">Calculate</button>
+<div class="result" id="factorial-result"></div>
+</div>
+
+<!-- Quadratic Equation Solver -->
+<div class="tool-card" data-tool="quadratic">
+<div class="tool-icon">📊</div>
+<h3>Quadratic Equation Solver</h3>
+<p>Solve ax²+bx+c=0</p>
+<div class="input-group">
+<label>a</label>
+<input type="number" id="quad-a" placeholder="e.g., 1">
+</div>
+<div class="input-group">
+<label>b</label>
+<input type="number" id="quad-b" placeholder="e.g., -5">
+</div>
+<div class="input-group">
+<label>c</label>
+<input type="number" id="quad-c" placeholder="e.g., 6">
+</div>
+<button class="calc-btn" onclick="solveQuadratic()">Solve</button>
+<div class="result" id="quadratic-result"></div>
+</div>
+
+<!-- Pythagorean Theorem -->
+<div class="tool-card" data-tool="pythagorean">
+<div class="tool-icon">📐</div>
+<h3>Pythagorean Theorem</h3>
+<p>Find hypotenuse or side</p>
+<div class="input-group">
+<label>Side a</label>
+<input type="number" id="pyth-a" placeholder="e.g., 3">
+</div>
+<div class="input-group">
+<label>Side b</label>
+<input type="number" id="pyth-b" placeholder="e.g., 4">
+</div>
+<button class="calc-btn" onclick="calcPythagorean()">Calculate</button>
+<div class="result" id="pythagorean-result"></div>
+</div>
+
+<!-- Area Calculator -->
+<div class="tool-card" data-tool="area">
+<div class="tool-icon">🟦</div>
+<h3>Area Calculator</h3>
+<p>Calculate area of shapes</p>
+<div class="input-group">
+<label>Shape</label>
+<select id="area-shape">
+<option value="circle">Circle</option>
+<option value="rectangle">Rectangle</option>
+<option value="triangle">Triangle</option>
+<option value="square">Square</option>
+</select>
+</div>
+<div class="input-group" id="area-inputs">
+<label>Radius/Side</label>
+<input type="number" id="area-val1" placeholder="Enter value">
+</div>
+<button class="calc-btn" onclick="calcArea()">Calculate Area</button>
+<div class="result" id="area-result"></div>
+</div>
+
+<!-- Volume Calculator -->
+<div class="tool-card" data-tool="volume">
+<div class="tool-icon">📦</div>
+<h3>Volume Calculator</h3>
+<p>Calculate volume of 3D shapes</p>
+<div class="input-group">
+<label>Shape</label>
+<select id="volume-shape">
+<option value="sphere">Sphere</option>
+<option value="cube">Cube</option>
+<option value="cylinder">Cylinder</option>
+<option value="cone">Cone</option>
+</select>
+</div>
+<div class="input-group" id="volume-inputs">
+<label>Radius/Side</label>
+<input type="number" id="volume-val1" placeholder="Enter value">
+</div>
+<button class="calc-btn" onclick="calcVolume()">Calculate Volume</button>
+<div class="result" id="volume-result"></div>
+</div>
+
+<!-- Temperature Converter -->
+<div class="tool-card" data-tool="temperature">
+<div class="tool-icon">🌡️</div>
+<h3>Temperature Converter</h3>
+<p>Convert between C, F, K</p>
+<div class="input-group">
+<label>Temperature</label>
+<input type="number" step="0.1" id="temp-value" placeholder="e.g., 25">
+</div>
+<div class="input-group">
+<label>From</label>
+<select id="temp-from">
+<option value="celsius">Celsius</option>
+<option value="fahrenheit">Fahrenheit</option>
+<option value="kelvin">Kelvin</option>
+</select>
+</div>
+<div class="input-group">
+<label>To</label>
+<select id="temp-to">
+<option value="fahrenheit">Fahrenheit</option>
+<option value="celsius">Celsius</option>
+<option value="kelvin">Kelvin</option>
+</select>
+</div>
+<button class="calc-btn" onclick="convertTemp()">Convert</button>
+<div class="result" id="temp-result"></div>
+</div>
+
+<!-- Length Converter -->
+<div class="tool-card" data-tool="length">
+<div class="tool-icon">📏</div>
+<h3>Length Converter</h3>
+<p>Convert between units</p>
+<div class="input-group">
+<label>Length</label>
+<input type="number" step="0.01" id="length-value" placeholder="e.g., 100">
+</div>
+<div class="input-group">
+<label>From</label>
+<select id="length-from">
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="feet">Feet</option>
+<option value="inch">Inch</option>
+<option value="mile">Mile</option>
+</select>
+</div>
+<div class="input-group">
+<label>To</label>
+<select id="length-to">
+<option value="feet">Feet</option>
+<option value="meter">Meter</option>
+<option value="kilometer">Kilometer</option>
+<option value="centimeter">Centimeter</option>
+<option value="inch">Inch</option>
+<option value="mile">Mile</option>
+</select>
+</div>
+<button class="calc-btn" onclick="convertLength()">Convert</button>
+<div class="result" id="length-result"></div>
+</div>
+
+<!-- Weight Converter -->
+<div class="tool-card" data-tool="weight">
+<div class="tool-icon">⚖️</div>
+<h3>Weight Converter</h3>
+<p>Convert between units</p>
+<div class="input-group">
+<label>Weight</label>
+<input type="number" step="0.01" id="weight-value" placeholder="e.g., 70">
+</div>
+<div class="input-group">
+<label>From</label>
+<select id="weight-from">
+<option value="kilogram">Kilogram</option>
+<option value="gram">Gram</option>
+<option value="pound">Pound</option>
+<option value="ounce">Ounce</option>
+</select>
+</div>
+<div class="input-group">
+<label>To</label>
+<select id="weight-to">
+<option value="pound">Pound</option>
+<option value="kilogram">Kilogram</option>
+<option value="gram">Gram</option>
+<option value="ounce">Ounce</option>
+</select>
+</div>
+<button class="calc-btn" onclick="convertWeight()">Convert</button>
+<div class="result" id="weight-result"></div>
+</div>
+
+<!-- Speed Calculator -->
+<div class="tool-card" data-tool="speed">
+<div class="tool-icon">🚀</div>
+<h3>Speed Calculator</h3>
+<p>Calculate Speed/Distance/Time</p>
+<div class="input-group">
+<label>Distance (km)</label>
+<input type="number" step="0.1" id="speed-dist" placeholder="e.g., 100">
+</div>
+<div class="input-group">
+<label>Time (hours)</label>
+<input type="number" step="0.1" id="speed-time" placeholder="e.g., 2">
+</div>
+<button class="calc-btn" onclick="calcSpeed()">Calculate Speed</button>
+<div class="result" id="speed-result"></div>
+</div>
+
+<!-- Binary Converter -->
+<div class="tool-card" data-tool="binary">
+<div class="tool-icon">💻</div>
+<h3>Number System Converter</h3>
+<p>Binary/Decimal/Hexadecimal</p>
+<div class="input-group">
+<label>Enter Number</label>
+<input type="text" id="binary-input" placeholder="e.g., 255">
+</div>
+<div class="input-group">
+<label>From</label>
+<select id="binary-from">
+<option value="decimal">Decimal</option>
+<option value="binary">Binary</option>
+<option value="hex">Hexadecimal</option>
+</select>
+</div>
+<button class="calc-btn" onclick="convertBinary()">Convert</button>
+<div class="result" id="binary-result"></div>
+</div>
+
+<!-- Roman Numeral Converter -->
+<div class="tool-card" data-tool="roman">
+<div class="tool-icon">🏛️</div>
+<h3>Roman Numeral Converter</h3>
+<p>Arabic ↔ Roman</p>
+<div class="input-group">
+<label>Enter Number/Roman</label>
+<input type="text" id="roman-input" placeholder="123 or CXXIII">
+</div>
+<button class="calc-btn" onclick="convertRoman()">Convert</button>
+<div class="result" id="roman-result"></div>
+</div>
+
+<!-- Discount Calculator -->
+<div class="tool-card" data-tool="discount">
+<div class="tool-icon">🏷️</div>
+<h3>Discount Calculator</h3>
+<p>Calculate final price after discount</p>
+<div class="input-group">
+<label>Original Price (₹)</label>
+<input type="number" id="discount-price" placeholder="e.g., 1000">
+</div>
+<div class="input-group">
+<label>Discount (%)</label>
+<input type="number" id="discount-perc" placeholder="e.g., 20">
+</div>
+<button class="calc-btn" onclick="calcDiscount()">Calculate</button>
+<div class="result" id="discount-result"></div>
+</div>
+
+<!-- Tip Calculator -->
+<div class="tool-card" data-tool="tip">
+<div class="tool-icon">🍴</div>
+<h3>Tip Calculator</h3>
+<p>Calculate restaurant tip</p>
+<div class="input-group">
+<label>Bill Amount (₹)</label>
+<input type="number" id="tip-bill" placeholder="e.g., 500">
+</div>
+<div class="input-group">
+<label>Tip (%)</label>
+<input type="number" id="tip-perc" placeholder="e.g., 10">
+</div>
+<button class="calc-btn" onclick="calcTip()">Calculate</button>
+<div class="result" id="tip-result"></div>
+</div>
+
+<!-- Time Duration Calculator -->
+<div class="tool-card" data-tool="time-duration">
+<div class="tool-icon">⏱️</div>
+<h3>Time Duration Calculator</h3>
+<p>Calculate time difference</p>
+<div class="input-group">
+<label>Start Time</label>
+<input type="time" id="time-start">
+</div>
+<div class="input-group">
+<label>End Time</label>
+<input type="time" id="time-end">
+</div>
+<button class="calc-btn" onclick="calcTimeDuration()">Calculate</button>
+<div class="result" id="time-duration-result"></div>
+</div>
+
+<!-- Statistics Calculator -->
+<div class="tool-card" data-tool="statistics">
+<div class="tool-icon">📊</div>
+<h3>Statistics Calculator</h3>
+<p>Mean, Median, Mode, Range</p>
+<div class="input-group">
+<label>Enter numbers (comma-separated)</label>
+<input type="text" id="stats-numbers" placeholder="10,20,30,40,50">
+</div>
+<button class="calc-btn" onclick="calcStatistics()">Calculate</button>
+<div class="result" id="stats-result"></div>
+</div>
+
+<!-- Fraction Calculator -->
+<div class="tool-card" data-tool="fraction">
+<div class="tool-icon">➗</div>
+<h3>Fraction Calculator</h3>
+<p>Add/Subtract Fractions</p>
+<div class="input-group">
+<label>Fraction 1 (e.g., 1/2)</label>
+<input type="text" id="frac1" placeholder="1/2">
+</div>
+<div class="input-group">
+<label>Operation</label>
+<select id="frac-op">
+<option value="add">Add</option>
+<option value="subtract">Subtract</option>
+<option value="multiply">Multiply</option>
+<option value="divide">Divide</option>
+</select>
+</div>
+<div class="input-group">
+<label>Fraction 2 (e.g., 3/4)</label>
+<input type="text" id="frac2" placeholder="3/4">
+</div>
+<button class="calc-btn" onclick="calcFraction()">Calculate</button>
+<div class="result" id="fraction-result"></div>
+</div>
+
+</div>
+
+<div class="stats">
+<div class="stat-item">
+<div class="stat-number">500K+</div>
+<p class="stat-label">Students Helped</p>
+</div>
+<div class="stat-item">
+<div class="stat-number">30+</div>
+<p class="stat-label">Free Tools</p>
+</div>
+<div class="stat-item">
+<div class="stat-number">100%</div>
+<p class="stat-label">Free Forever</p>
+</div>
+</div>
+
+<footer>
+<p>❤️ Made with love by Shashank Kushwaha | Class 11 ISC Student</p>
+<p>📧 Contact: <a href="mailto:return7521@gmail.com">return7521@gmail.com</a></p>
+<p>📸 Instagram: <a href="https://instagram.com/shashank_rt_" target="_blank">@shashank_rt_</a></p>
+<p>&copy; 2025 StudyTools India. All calculators are free to use.</p>
+</footer>
+</div>
+
+<script>
+// Percentage Calculator
+function calcPercentage(){const v=parseFloat(document.getElementById('perc-value').value);const t=parseFloat(document.getElementById('perc-total').value);if(!v||!t){showResult('perc-result','⚠️ Please enter both values',false);return}const p=((v/t)*100).toFixed(2);showResult('perc-result',`✅ ${p}%<br><small>${v} is ${p}% of ${t}</small>`,true)}
+
+// CGPA to Percentage
+function calcCGPA(){const c=parseFloat(document.getElementById('cgpa-value').value);const s=parseFloat(document.getElementById('cgpa-scale').value);if(!c){showResult('cgpa-result','⚠️ Please enter CGPA',false);return}const p=s===10?(c*9.5).toFixed(2):(c*25).toFixed(2);let g='';if(p>=90)g='A+ (Outstanding)';else if(p>=80)g='A (Excellent)';else if(p>=70)g='B+ (Very Good)';else if(p>=60)g='B (Good)';else if(p>=50)g='C (Average)';else g='D (Pass)';showResult('cgpa-result',`✅ ${p}%<br>Grade: ${g}`,true)}
+
+// Age Calculator
+function calcAge(){const d=document.getElementById('dob').value;if(!d){showResult('age-result','⚠️ Please enter date of birth',false);return}const b=new Date(d);const t=new Date();let y=t.getFullYear()-b.getFullYear();let m=t.getMonth()-b.getMonth();let days=t.getDate()-b.getDate();if(days<0){m--;days+=30}if(m<0){y--;m+=12}showResult('age-result',`🎉 ${y} years, ${m} months, ${days} days`,true)}
+
+// JEE/NDA Countdown
+function calcCountdown(){const e=document.getElementById('exam-date').value;if(!e){showResult('countdown-result','⚠️ Please enter exam date',false);return}const ex=new Date(e);const t=new Date();const diff=Math.ceil((ex-t)/(1000*60*60*24));if(diff<0)showResult('countdown-result','⚠️ Exam date has passed',false);else if(diff===0)showResult('countdown-result','🔥 Exam is TODAY! Good luck!',true);else showResult('countdown-result',`⏳ ${diff} days remaining<br>💪 Keep pushing!`,true)}
+
+// BMI Calculator
+function calcBMI(){const h=parseFloat(document.getElementById('height').value);const w=parseFloat(document.getElementById('weight').value);if(!h||!w){showResult('bmi-result','⚠️ Please enter both values',false);return}const bmi=((w/((h/100)**2)).toFixed(2));let cat='';if(bmi<18.5)cat='Underweight';else if(bmi<25)cat='Normal weight';else if(bmi<30)cat='Overweight';else cat='Obese';showResult('bmi-result',`BMI: ${bmi}<br>Category: ${cat}`,true)}
+
+// Grade Calculator
+function calcGrade(){const m=parseFloat(document.getElementById('marks').value);const t=parseFloat(document.getElementById('total-marks').value);if(!m||!t){showResult('grade-result','⚠️ Please enter both marks',false);return}const p=((m/t)*100).toFixed(2);let g='';if(p>=90)g='A+ Grade';else if(p>=80)g='A Grade';else if(p>=70)g='B+ Grade';else if(p>=60)g='B Grade';else if(p>=50)g='C Grade';else if(p>=40)g='D Grade';else g='Fail';showResult('grade-result',`🎯 ${p}%<br>${g}`,true)}
+
+// GPA Calculator
+function calcGPA(){const grades=document.getElementById('gpa-grades').value.toUpperCase().split(',').map(g=>g.trim());if(grades.length===0){showResult('gpa-result','⚠️ Please enter grades',false);return}const gradePoints={'A+':10,'A':9,'A-':8.5,'B+':8,'B':7,'B-':6.5,'C+':6,'C':5,'D':4,'F':0};let total=0;let count=0;grades.forEach(g=>{if(gradePoints[g]!==undefined){total+=gradePoints[g];count++}});if(count===0){showResult('gpa-result','⚠️ Invalid grades',false);return}const gpa=(total/count).toFixed(2);showResult('gpa-result',`🎯 GPA: ${gpa}/10<br><small>Based on ${count} grades</small>`,true)}
+
+// Percentage to CGPA
+function calcPercToCGPA(){const p=parseFloat(document.getElementById('perc-to-cgpa-value').value);const s=parseFloat(document.getElementById('perc-to-cgpa-scale').value);if(!p){showResult('perc-to-cgpa-result','⚠️ Please enter percentage',false);return}const cgpa=s===10?(p/9.5).toFixed(2):(p/25).toFixed(2);showResult('perc-to-cgpa-result',`✅ CGPA: ${cgpa}/${s}`,true)}
+
+// Attendance Calculator
+function calcAttendance(){const a=parseFloat(document.getElementById('attended').value);const t=parseFloat(document.getElementById('total-classes').value);if(!a||!t){showResult('attendance-result','⚠️ Please enter both values',false);return}const p=((a/t)*100).toFixed(2);let msg='';if(p>=75)msg='✅ Great attendance!';else msg='⚠️ Need to improve';showResult('attendance-result',`${p}%<br>${msg}`,p>=75)}
+
+// Average Calculator
+function calcAverage(){const nums=document.getElementById('avg-numbers').value.split(',').map(n=>parseFloat(n.trim())).filter(n=>!isNaN(n));if(nums.length===0){showResult('average-result','⚠️ Please enter numbers',false);return}const avg=(nums.reduce((a,b)=>a+b,0)/nums.length).toFixed(2);showResult('average-result',`🧮 Average: ${avg}<br><small>Count: ${nums.length}</small>`,true)}
+
+// Simple Interest
+function calcSimpleInterest(){const p=parseFloat(document.getElementById('si-principal').value);const r=parseFloat(document.getElementById('si-rate').value);const t=parseFloat(document.getElementById('si-time').value);if(!p||!r||!t){showResult('si-result','⚠️ Please enter all values',false);return}const si=(p*r*t/100).toFixed(2);const total=(parseFloat(p)+parseFloat(si)).toFixed(2);showResult('si-result',`💵 Interest: ₹${si}<br>Total: ₹${total}`,true)}
+
+// Compound Interest
+function calcCompoundInterest(){const p=parseFloat(document.getElementById('ci-principal').value);const r=parseFloat(document.getElementById('ci-rate').value);const t=parseFloat(document.getElementById('ci-time').value);const n=parseFloat(document.getElementById('ci-freq').value);if(!p||!r||!t){showResult('ci-result','⚠️ Please enter all values',false);return}const a=p*Math.pow((1+r/(100*n)),(n*t));const ci=(a-p).toFixed(2);showResult('ci-result',`💰 Interest: ₹${ci}<br>Total: ₹${a.toFixed(2)}`,true)}
+
+// Square Root
+function calcSquareRoot(){const n=parseFloat(document.getElementById('sqrt-num').value);if(!n||n<0){showResult('sqrt-result','⚠️ Please enter a positive number',false);return}const result=Math.sqrt(n).toFixed(4);showResult('sqrt-result',`√${n} = ${result}`,true)}
+
+// Power Calculator
+function calcPower(){const base=parseFloat(document.getElementById('power-base').value);const exp=parseFloat(document.getElementById('power-exp').value);if(isNaN(base)||isNaN(exp)){showResult('power-result','⚠️ Please enter both values',false);return}const result=Math.pow(base,exp).toFixed(4);showResult('power-result',`${base}^${exp} = ${result}`,true)}
+
+// LCM Calculator
+function calcLCM(){const nums=document.getElementById('lcm-numbers').value.split(',').map(n=>parseInt(n.trim())).filter(n=>!isNaN(n)&&n>0);if(nums.length<2){showResult('lcm-result','⚠️ Enter at least 2 numbers',false);return}const gcd=(a,b)=>b===0?a:gcd(b,a%b);const lcm=(a,b)=>(a*b)/gcd(a,b);const result=nums.reduce((a,b)=>lcm(a,b));showResult('lcm-result',`🔢 LCM = ${result}`,true)}
+
+// HCF Calculator
+function calcHCF(){const nums=document.getElementById('hcf-numbers').value.split(',').map(n=>parseInt(n.trim())).filter(n=>!isNaN(n)&&n>0);if(nums.length<2){showResult('hcf-result','⚠️ Enter at least 2 numbers',false);return}const gcd=(a,b)=>b===0?a:gcd(b,a%b);const result=nums.reduce((a,b)=>gcd(a,b));showResult('hcf-result',`🔡 HCF/GCD = ${result}`,true)}
+
+// Prime Number Checker
+function checkPrime(){const n=parseInt(document.getElementById('prime-num').value);if(!n||n<2){showResult('prime-result','⚠️ Enter a number ≥ 2',false);return}let isPrime=true;for(let i=2;i<=Math.sqrt(n);i++){if(n%i===0){isPrime=false;break}}showResult('prime-result',isPrime?`✅ ${n} is PRIME`:`❌ ${n} is NOT prime`,isPrime)}
+
+// Factorial
+function calcFactorial(){const n=parseInt(document.getElementById('fact-num').value);if(!n||n<0||n>170){showResult('factorial-result','⚠️ Enter 0-170',false);return}let fact=1;for(let i=2;i<=n;i++)fact*=i;showResult('factorial-result',`${n}! = ${fact.toExponential(2)}`,true)}
+
+// Quadratic Equation
+function solveQuadratic(){const a=parseFloat(document.getElementById('quad-a').value);const b=parseFloat(document.getElementById('quad-b').value);const c=parseFloat(document.getElementById('quad-c').value);if(isNaN(a)||isNaN(b)||isNaN(c)||a===0){showResult('quadratic-result','⚠️ Invalid values (a≠0)',false);return}const disc=b*b-4*a*c;if(disc<0){showResult('quadratic-result','No real roots',false)}else{const x1=((-b+Math.sqrt(disc))/(2*a)).toFixed(2);const x2=((-b-Math.sqrt(disc))/(2*a)).toFixed(2);showResult('quadratic-result',`x₁ = ${x1}<br>x₂ = ${x2}`,true)}}
+
+// Pythagorean Theorem
+function calcPythagorean(){const a=parseFloat(document.getElementById('pyth-a').value);const b=parseFloat(document.getElementById('pyth-b').value);if(!a||!b){showResult('pythagorean-result','⚠️ Enter both sides',false);return}const c=Math.sqrt(a*a+b*b).toFixed(2);showResult('pythagorean-result',`📐 Hypotenuse (c) = ${c}`,true)}
+
+// Area Calculator
+function calcArea(){const shape=document.getElementById('area-shape').value;const val1=parseFloat(document.getElementById('area-val1').value);if(!val1){showResult('area-result','⚠️ Enter value',false);return}let area=0;if(shape==='circle')area=Math.PI*val1*val1;else if(shape==='square')area=val1*val1;else if(shape==='rectangle'){const val2=parseFloat(prompt('Enter width:'));area=val1*val2}else if(shape==='triangle'){const val2=parseFloat(prompt('Enter height:'));area=0.5*val1*val2}showResult('area-result',`🟦 Area = ${area.toFixed(2)} sq units`,true)}
+
+// Volume Calculator  
+function calcVolume(){const shape=document.getElementById('volume-shape').value;const val1=parseFloat(document.getElementById('volume-val1').value);if(!val1){showResult('volume-result','⚠️ Enter value',false);return}let vol=0;if(shape==='sphere')vol=(4/3)*Math.PI*Math.pow(val1,3);else if(shape==='cube')vol=Math.pow(val1,3);else if(shape==='cylinder'){const h=parseFloat(prompt('Enter height:'));vol=Math.PI*val1*val1*h}else if(shape==='cone'){const h=parseFloat(prompt('Enter height:'));vol=(1/3)*Math.PI*val1*val1*h}showResult('volume-result',`📦 Volume = ${vol.toFixed(2)} cubic units`,true)}
+
+// Temperature Converter
+function convertTemp(){const val=parseFloat(document.getElementById('temp-value').value);const from=document.getElementById('temp-from').value;const to=document.getElementById('temp-to').value;if(isNaN(val)){showResult('temp-result','⚠️ Enter temperature',false);return}let result=0;if(from===to)result=val;else if(from==='celsius'&&to==='fahrenheit')result=(val*9/5)+32;else if(from==='celsius'&&to==='kelvin')result=val+273.15;else if(from==='fahrenheit'&&to==='celsius')result=(val-32)*5/9;else if(from==='fahrenheit'&&to==='kelvin')result=((val-32)*5/9)+273.15;else if(from==='kelvin'&&to==='celsius')result=val-273.15;else if(from==='kelvin'&&to==='fahrenheit')result=((val-273.15)*9/5)+32;showResult('temp-result',`🌡️ ${result.toFixed(2)}° ${to.charAt(0).toUpperCase()}`,true)}
+
+// Length Converter
+function convertLength(){const val=parseFloat(document.getElementById('length-value').value);const from=document.getElementById('length-from').value;const to=document.getElementById('length-to').value;if(isNaN(val)){showResult('length-result','⚠️ Enter length',false);return}const units={meter:1,kilometer:0.001,centimeter:100,feet:3.28084,inch:39.3701,mile:0.000621371};const inMeters=val/units[from];const result=inMeters*units[to];showResult('length-result',`📏 ${result.toFixed(4)} ${to}`,true)}
+
+// Weight Converter
+function convertWeight(){const val=parseFloat(document.getElementById('weight-value').value);const from=document.getElementById('weight-from').value;const to=document.getElementById('weight-to').value;if(isNaN(val)){showResult('weight-result','⚠️ Enter weight',false);return}const units={kilogram:1,gram:1000,pound:2.20462,ounce:35.274};const inKg=val/units[from];const result=inKg*units[to];showResult('weight-result',`⚖️ ${result.toFixed(4)} ${to}`,true)}
+
+// Speed Calculator
+function calcSpeed(){const dist=parseFloat(document.getElementById('speed-dist').value);const time=parseFloat(document.getElementById('speed-time').value);if(!dist||!time){showResult('speed-result','⚠️ Enter both values',false);return}const speed=(dist/time).toFixed(2);showResult('speed-result',`🚀 Speed = ${speed} km/h`,true)}
+
+// Binary Converter
+function convertBinary(){const input=document.getElementById('binary-input').value.trim();const from=document.getElementById('binary-from').value;if(!input){showResult('binary-result','⚠️ Enter a number',false);return}let decimal=0;try{if(from==='decimal')decimal=parseInt(input,10);else if(from==='binary')decimal=parseInt(input,2);else if(from==='hex')decimal=parseInt(input,16);const binary=decimal.toString(2);const hex=decimal.toString(16).toUpperCase();showResult('binary-result',`Dec: ${decimal}<br>Bin: ${binary}<br>Hex: ${hex}`,true)}catch(e){showResult('binary-result','⚠️ Invalid input',false)}}
+
+// Roman Numeral Converter
+function convertRoman(){const input=document.getElementById('roman-input').value.trim().toUpperCase();if(!input){showResult('roman-result','⚠️ Enter value',false);return}if(/^[0-9]+$/.test(input)){const num=parseInt(input);if(num<1||num>3999){showResult('roman-result','⚠️ Enter 1-3999',false);return}const values=[1000,900,500,400,100,90,50,40,10,9,5,4,1];const symbols=['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];let roman='';for(let i=0;i<values.length;i++){while(num>=values[i]){roman+=symbols[i];num-=values[i]}}showResult('roman-result',`🏛️ ${roman}`,true)}else{const romanValues={I:1,V:5,X:10,L:50,C:100,D:500,M:1000};let num=0;for(let i=0;i<input.length;i++){const curr=romanValues[input[i]];const next=romanValues[input[i+1]];if(next&&curr<next)num-=curr;else num+=curr}showResult('roman-result',`🔢 ${num}`,true)}}
+
+// Discount Calculator
+function calcDiscount(){const price=parseFloat(document.getElementById('discount-price').value);const disc=parseFloat(document.getElementById('discount-perc').value);if(!price||!disc){showResult('discount-result','⚠️ Enter both values',false);return}const discount=(price*disc/100).toFixed(2);const final=(price-discount).toFixed(2);showResult('discount-result',`🏷️ Discount: ₹${discount}<br>Final Price: ₹${final}`,true)}
+
+// Tip Calculator
+function calcTip(){const bill=parseFloat(document.getElementById('tip-bill').value);const tipPerc=parseFloat(document.getElementById('tip-perc').value);if(!bill||!tipPerc){showResult('tip-result','⚠️ Enter both values',false);return}const tip=(bill*tipPerc/100).toFixed(2);const total=(parseFloat(bill)+parseFloat(tip)).toFixed(2);showResult('tip-result',`🍴 Tip: ₹${tip}<br>Total: ₹${total}`,true)}
+
+// Time Duration Calculator
+function calcTimeDuration(){const start=document.getElementById('time-start').value;const end=document.getElementById('time-end').value;if(!start||!end){showResult('time-duration-result','⚠️ Enter both times',false);return}const [h1,m1]=start.split(':').map(Number);const [h2,m2]=end.split(':').map(Number);let hours=h2-h1;let mins=m2-m1;if(mins<0){hours--;mins+=60}if(hours<0)hours+=24;showResult('time-duration-result',`⏱️ ${hours}h ${mins}m`,true)}
+
+// Statistics Calculator
+function calcStatistics(){const nums=document.getElementById('stats-numbers').value.split(',').map(n=>parseFloat(n.trim())).filter(n=>!isNaN(n));if(nums.length===0){showResult('stats-result','⚠️ Enter numbers',false);return}nums.sort((a,b)=>a-b);const mean=(nums.reduce((a,b)=>a+b,0)/nums.length).toFixed(2);const median=nums.length%2===0?((nums[nums.length/2-1]+nums[nums.length/2])/2).toFixed(2):nums[Math.floor(nums.length/2)].toFixed(2);const range=(nums[nums.length-1]-nums[0]).toFixed(2);showResult('stats-result',`Mean: ${mean}<br>Median: ${median}<br>Range: ${range}`,true)}
+
+// Fraction Calculator
+function calcFraction(){const frac1=document.getElementById('frac1').value.split('/').map(n=>parseInt(n.trim()));const frac2=document.getElementById('frac2').value.split('/').map(n=>parseInt(n.trim()));const op=document.getElementById('frac-op').value;if(frac1.length!==2||frac2.length!==2){showResult('fraction-result','⚠️ Invalid format',false);return}let [n1,d1]=frac1;let [n2,d2]=frac2;let resNum=0,resDen=0;if(op==='add'){resNum=n1*d2+n2*d1;resDen=d1*d2}else if(op==='subtract'){resNum=n1*d2-n2*d1;resDen=d1*d2}else if(op==='multiply'){resNum=n1*n2;resDen=d1*d2}else if(op==='divide'){resNum=n1*d2;resDen=d1*n2}const gcd=(a,b)=>b===0?a:gcd(b,Math.abs(a%b));const g=gcd(Math.abs(resNum),Math.abs(resDen));resNum/=g;resDen/=g;showResult('fraction-result',`➗ ${resNum}/${resDen}`,true)}
+
+// Helper function to show results
+function showResult(id,html,success){const el=document.getElementById(id);el.innerHTML=html;el.classList.remove('show');setTimeout(()=>el.classList.add('show'),10);setTimeout(()=>el.classList.remove('show'),5000)}
+
+// Search functionality
+function searchTools(){const q=document.getElementById('searchBox').value.toLowerCase();const cards=document.querySelectorAll('.tool-card');cards.forEach(card=>{const tool=card.getAttribute('data-tool');const title=card.querySelector('h3').textContent.toLowerCase();const desc=card.querySelector('p').textContent.toLowerCase();if(tool.includes(q)||title.includes(q)||desc.includes(q)){card.style.display='block'}else{card.style.display='none'}})}
+
+// Dark mode toggle
+function toggleDarkMode(){document.body.classList.toggle('dark-mode');const btn=document.querySelector('.dark-mode-toggle');btn.textContent=document.body.classList.contains('dark-mode')?'☀️':'🌙';localStorage.setItem('darkMode',document.body.classList.contains('dark-mode'))}
+
+// Load dark mode preference
+window.onload=function(){if(localStorage.getItem('darkMode')==='true'){document.body.classList.add('dark-mode');document.querySelector('.dark-mode-toggle').textContent='☀️'}}
+</script>
+</body>
+</html>
