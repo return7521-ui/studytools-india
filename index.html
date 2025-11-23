@@ -16,6 +16,217 @@
     <meta name="author" content="Shashank Kushwaha">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://return7521-ui.github.io/studytools-india/">
+      
+    <!-- ENHANCED STYLES FOR MOBILE & DYNAMIC BACKGROUND -->
+    <style>
+        /* Override body background with dynamic colorful gradient */
+        body {
+            background: linear-gradient(135deg, 
+                #667eea 0%, 
+                #764ba2 15%, 
+                #f093fb 30%, 
+                #4facfe 45%, 
+                #00f2fe 60%,
+                #43e97b 75%,
+                #fa709a 90%,
+                #fee140 100%) !important;
+            background-size: 400% 400% !important;
+            animation: dynamicBackgroundShift 20s ease infinite !important;
+            min-height: 100vh !important;
+            position: relative !important;
+            overflow-x: hidden !important;
+        }
+        
+        /* Add animated geometric shapes in background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 153, 51, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(19, 136, 8, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: backgroundShapes 30s ease-in-out infinite;
+            z-index: 0;
+            pointer-events: none;
+        }
+        
+        /* Ensure content stays above background */
+        .container, header, .logo, h1, .search-box, .tools-grid, footer, .developer-section {
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Dynamic background animation */
+        @keyframes dynamicBackgroundShift {
+            0% { background-position: 0% 50%; }
+            25% { background-position: 50% 100%; }
+            50% { background-position: 100% 50%; }
+            75% { background-position: 50% 0%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        @keyframes backgroundShapes {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(30px, -30px) rotate(120deg); }
+            66% { transform: translate(-20px, 20px) rotate(240deg); }
+        }
+        
+        /* Title animations */
+        @keyframes titlePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes titleFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes letterBounce {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        /* MOBILE RESPONSIVENESS IMPROVEMENTS */
+        @media screen and (max-width: 768px) {
+            /* Title responsive sizing */
+            h1 {
+                font-size: clamp(2rem, 10vw, 3.5rem) !important;
+                letter-spacing: clamp(1px, 0.3vw, 4px) !important;
+                padding: 10px !important;
+                margin: 15px 0 !important;
+            }
+            
+            /* Logo responsive sizing */
+            .logo {
+                width: clamp(60px, 15vw, 100px) !important;
+                height: clamp(60px, 15vw, 100px) !important;
+            }
+            
+            /* Search box mobile optimization */
+            .search-box {
+                width: 95% !important;
+                max-width: 100% !important;
+                margin: 15px auto !important;
+                padding: 12px 20px !important;
+            }
+            
+            /* Calculator cards mobile grid */
+            .tools-grid {
+                grid-template-columns: 1fr !important;
+                gap: 15px !important;
+                padding: 15px !important;
+            }
+            
+            /* Tool cards mobile sizing */
+            .tool-card {
+                padding: 20px 15px !important;
+                margin: 0 !important;
+            }
+            
+            /* Input fields mobile */
+            input, select, button {
+                font-size: 16px !important; /* Prevents zoom on iOS */
+                padding: 12px !important;
+                min-height: 44px !important; /* Touch target size */
+            }
+            
+            /* Button mobile optimization */
+            button {
+                min-width: 120px !important;
+                padding: 12px 20px !important;
+            }
+            
+            /* Footer mobile layout */
+            footer {
+                padding: 20px 10px !important;
+            }
+            
+            /* Social buttons mobile */
+            .social-share a {
+                padding: 10px 15px !important;
+                font-size: 14px !important;
+                margin: 5px !important;
+            }
+            
+            /* Developer section mobile */
+            .developer-section {
+                padding: 30px 15px !important;
+                margin-top: 30px !important;
+            }
+            
+            /* Container padding mobile */
+            .container {
+                padding: 10px !important;
+            }
+        }
+        
+        /* Tablet responsiveness */
+        @media screen and (min-width: 769px) and (max-width: 1024px) {
+            h1 {
+                font-size: clamp(3rem, 6vw, 4.5rem) !important;
+            }
+            
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
+            }
+        }
+        
+        /* Small mobile devices */
+        @media screen and (max-width: 480px) {
+            h1 {
+                font-size: clamp(1.8rem, 12vw, 2.5rem) !important;
+                line-height: 1.3 !important;
+            }
+            
+            .logo {
+                width: 70px !important;
+                height: 70px !important;
+            }
+            
+            .tool-card {
+                padding: 15px 10px !important;
+            }
+            
+            input, select {
+                padding: 10px !important;
+            }
+        }
+        
+        /* Landscape mobile orientation */
+        @media screen and (max-height: 500px) and (orientation: landscape) {
+            h1 {
+                font-size: 2rem !important;
+                margin: 10px 0 !important;
+            }
+            
+            .logo {
+                width: 60px !important;
+                height: 60px !important;
+            }
+        }
+        
+        /* High contrast for better visibility */
+        @media (prefers-contrast: high) {
+            body {
+                background: linear-gradient(135deg, #000080, #4B0082, #8B008B) !important;
+            }
+        }
+        
+        /* Reduced motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
     
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website">
@@ -124,8 +335,10 @@ footer a:hover{color:#667eea}
 <div class="logo">🧮</div>
   <!-- Particles Background Container -->
 <div id="particles-js"></div>
-<h1>StudyTools India</h1>
-<div class="logo">
+        <h1 style="font-family:'Baloo Bhai 2','Poppins',sans-serif;font-size:clamp(2.5rem, 8vw, 5rem);font-weight:900;margin:20px 0;text-align:center;background:linear-gradient(135deg, #FF9933 0%, #FF9933 33%, #FFFFFF 33%, #FFFFFF 66%, #138808 66%, #138808 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-shadow:0 0 30px rgba(255,153,51,0.3), 0 0 60px rgba(19,136,8,0.2);animation:titlePulse 3s ease-in-out infinite,titleFloat 4s ease-in-out infinite;letter-spacing:clamp(2px, 0.5vw, 8px);filter:drop-shadow(0 5px 15px rgba(0,0,0,0.2));transform-style:preserve-3d;">
+            <span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0s;">S</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.1s;">t</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.2s;">u</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.3s;">d</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.4s;">y</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.5s;">T</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.6s;">o</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.7s;">o</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.8s;">l</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:0.9s;">s</span> 
+            <span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:1s;">I</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:1.1s;">n</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:1.2s;">d</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:1.3s;">i</span><span style="display:inline-block;animation:letterBounce 0.6s ease-in-out infinite;animation-delay:1.4s;">a</span>
+        </h1><div class="logo">
   <svg width="80" height="80" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="custom-logo">
     <!-- Gradient Background Circle -->
     <defs>
