@@ -197,6 +197,40 @@
                 font-size: clamp(1.8rem, 12vw, 2.5rem) !important;
                 line-height: 1.3 !important;
             }
+
+              /* Comprehensive text wrapping for all elements */
+    p, span, div, h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Developer section specific text wrapping */
+    .developer-section, .developer-section * {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+    }
+
+    .developer-section p {
+        font-size: 0.85rem !important;
+        line-height: 1.4 !important;
+        padding: 0 10px !important;
+    }
+
+              /* Container and card text wrapping */
+    .container, .tool-card, .tool-card * {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        max-width: 100% !important;
+    }
+
+    .tool-card h3, .tool-card p {
+        font-size: 0.9rem !important;
+        padding: 5px !important;
+    }
             
             .logo {
                 width: 70px !important;
@@ -240,7 +274,46 @@
                 transition-duration: 0.01ms !important;
             }
         }
-    </style>
+    <
+      
+      /* Extra small devices (phones, 320px and below) */
+@media screen and (max-width: 320px) {
+    /* Aggressive text wrapping for very small screens */
+    body, p, span, div, h1, h2, h3, h4, h5, h6 {
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+        word-break: break-word !important;
+        hyphens: auto !important;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 10vw, 2.2rem) !important;
+        padding: 5px !important;
+    }
+
+    .developer-section p {
+        font-size: 0.75rem !important;
+        line-height: 1.3 !important;
+        padding: 5px !important;
+    }
+
+    .tool-card {
+        padding: 10px !important;
+        margin: 10px 5px !important;
+    }
+
+    .tool-card h3 {
+        font-size: 0.85rem !important;
+    }
+
+    .tool-card p {
+        font-size: 0.75rem !important;
+    }
+
+    .container {
+        padding: 5px !important;
+    }
+}/style>
     
     <!-- Open Graph / Facebook Meta Tags -->
     <meta property="og:type" content="website">
@@ -1072,7 +1145,7 @@ footer a:hover{color:#667eea}
                     </div>
                     <h2 style="font-size:42px;font-weight:900;color:white;margin:0;text-shadow:3px 3px 10px rgba(0,0,0,0.4);font-family:'Montserrat',sans-serif;letter-spacing:3px;animation:textGlow 2s ease-in-out infinite alternate;">SHASHANK KUSHWAHA</h2>
                     <p style="font-size:22px;color:#FFD700;margin:10px 0 5px;font-weight:700;text-shadow:2px 2px 6px rgba(0,0,0,0.3);font-family:'Raleway',sans-serif;letter-spacing:2px;">🎓 Class 11 ISC Student | Future Engineer</p>
-                    <p style="font-size:18px;color:rgba(255,255,255,0.9);margin:5px 0;font-weight:600;font-style:italic;text-shadow:1px 1px 4px rgba(0,0,0,0.3);font-family:'Lato',sans-serif;">✈️ Aspiring Indian Air Force Officer | 🚀 Web Developer</p>
+                    <p style="font-size:18px;color:rgba(255,255,255,0.9);margin:5px 0;font-weight:600;font-style:italic;text-shadow:1px 1px 4px rgba(0,0,0,0.3);font-family:'Lato',sans-serif;">✈️ AI Developer & Future Innovator Officer | 🚀 Web Developer</p>
                 </div>
                 
                 <!-- Developer Description -->
