@@ -1329,12 +1329,6 @@ function showShareMenu(resultDiv) {
   setTimeout(() => shareMenu.remove(), 10000);
 }
 
-// Enhanced showResult function with copy/share buttons
-const originalShowResult = showResult;
-showResult = function(id, html, success) {
-  originalShowResult(id, html, success);
-  setTimeout(() => addCopyButtonToResult(id), 100);
-};
 
 // Add CSS animations
 const style = document.createElement('style');
