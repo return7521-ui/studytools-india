@@ -4,7 +4,7 @@
   <!-- Google Fonts for Enhanced Typography -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Raleway:wght@400;500;600&family=Orbitron:wght@700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <!-- Particles.js for Dynamic Background -->
 <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 <meta charset="UTF-8">
@@ -17,8 +17,188 @@
 :root {
   --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   --secondary-gradient: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+
+    /* Enhanced Animation Variables */
+  --animate-duration: 0.8s;
+  --animate-delay: 0.1s;
+  --glow-color: rgba(118, 75, 162, 0.6);
+  --shadow-color: rgba(0, 0, 0, 0.3);
+  --gradient-angle: 45deg;
   --accent-color: #764ba2;
   --text-glow: 0 0 10px rgba(118, 75, 162, 0.5);
+}
+
+  /* ===== ENHANCED TYPOGRAPHY & ANIMATIONS ===== */
+
+.logo {
+  font-family: 'Orbitron', 'Poppins', cursive !important;
+  font-weight: 900 !important;
+  background: linear-gradient(90deg, #667eea, #f093fb, #667eea);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease infinite, float-logo 2s ease-in-out infinite;
+  text-shadow: none;
+}
+
+h1 {
+  font-family: 'Space Grotesk', 'Poppins', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -1px;
+}
+
+body {
+  font-family: 'Inter', 'Poppins', sans-serif !important;
+}
+
+.result {
+  font-family: 'Fira Code', 'Courier New', monospace !important;
+  font-weight: 500;
+}
+
+/* Enhanced Button Effects */
+.calc-btn {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.calc-btn:before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.calc-btn:hover:before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Enhanced Card Animations */
+.tool-card {
+  animation: card-entry 0.6s ease-out forwards;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tool-card:hover {
+  transform: translateY(-15px) scale(1.02) !important;
+  box-shadow: 0 25px 50px rgba(118, 75, 162, 0.3), 0 0 30px rgba(102, 126, 234, 0.2) !important;
+}
+
+/* Ripple Effect on Click */
+@keyframes ripple {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Gradient Animation */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Enhanced Float Animation */
+@keyframes float-logo {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(2deg); }
+  50% { transform: translateY(0px) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(-2deg); }
+}
+
+/* Card Entry Animation */
+@keyframes card-entry {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Glow Pulse Animation */
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(118, 75, 162, 0.4), 0 0 40px rgba(102, 126, 234, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(118, 75, 162, 0.6), 0 0 60px rgba(102, 126, 234, 0.4);
+  }
+}
+
+/* Input Focus Enhancement */
+.input-group input:focus,
+.input-group select:focus {
+  animation: glow-pulse 2s ease-in-out infinite;
+  transform: scale(1.02);
+}
+
+/* Enhanced Title Animation */
+h1, h3 {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Enhanced Dark Mode Toggle */
+.dark-mode-toggle {
+  animation: float-logo 3s ease-in-out infinite;
+  box-shadow: 0 5px 15px var(--glow-color);
+}
+
+/* Tool Icon Bounce */
+.tool-icon {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.tool-card:hover .tool-icon {
+  animation: icon-bounce 0.6s ease;
+}
+
+@keyframes icon-bounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-10px); }
+  50% { transform: translateY(-5px); }
+  75% { transform: translateY(-8px); }
+}
+
+/* Search Box Enhancement */
+.search-box {
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.search-box:focus {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 20px 60px rgba(118, 75, 162, 0.3) !important;
+}
+
+/* Stats Counter Animation */
+.stat-number {
+  font-family: 'Orbitron', monospace !important;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Particle Background Container */
