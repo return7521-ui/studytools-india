@@ -108,8 +108,16 @@
 
               /* ===== DARK MODE STYLES ===== */
     body.dark-mode {
-        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
-        color: #ffffff !important;
+        background: linear-gradient(135deg, 
+            #2C1B47 0%,     /* Deep Purple */
+            #1E3A5F 20%,    /* Dark Blue */
+            #2D5F5D 40%,    /* Dark Teal */
+            #4A1942 60%,    /* Dark Magenta */
+            #2C1B47 80%,    /* Back to Deep Purple */
+            #1E3A5F 100%    /* Dark Blue */
+        ) !important;
+        background-size: 400% 400% !important;
+        animation: dynamicBackgroundShift 20s ease infinite !important;        color: #ffffff !important;
         transition: all 0.5s ease;
     }
 
