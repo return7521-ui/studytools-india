@@ -25,16 +25,17 @@
                 #667eea 0%, 
                 #764ba2 15%, 
                 #f093fb 30%, 
-                #4facfe 45%, 
-                #00f2fe 60%,
-                #43e97b 75%,
-                #fa709a 90%,
-                #fee140 100%) !important;
-            background-size: 400% 400% !important;
-            animation: dynamicBackgroundShift 20s ease infinite !important;
-            min-height: 100vh !important;
-            position: relative !important;
-            overflow-x: hidden !important;
+                #4facfe 45%, #FF9933 0%, /* Indian Saffron */
+            #FFFFFF 20%, /* White */
+            #138808 40%, /* Indian Green */
+            #4A90E2 60%, /* Sky Blue */
+            #9B59B6 80%, /* Purple */
+            #FF9933 100%); /* Back to Saffron */
+        background-size: 400% 400% !important;
+        animation: dynamicBackgroundShift 20s ease infinite !important;
+        min-height: 100vh !important;
+        position: relative !important;
+        overflow-x: hidden !important;n !important;
         }
         
         /* Add animated geometric shapes in background */
@@ -104,6 +105,53 @@
             transform: translateY(-3px) !important; /* Reduced from larger values */
             box-shadow: 0 4px 15px rgba(0,0,0,0.15) !important;
         }
+
+              /* ===== DARK MODE STYLES ===== */
+    body.dark-mode {
+        background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%) !important;
+        color: #ffffff !important;
+        transition: all 0.5s ease;
+    }
+
+    body.dark-mode h1, 
+    body.dark-mode h2, 
+    body.dark-mode h3, 
+    body.dark-mode p {
+        color: #ffffff !important;
+    }
+
+    body.dark-mode .tool-card {
+        background: rgba(30, 30, 50, 0.9) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    body.dark-mode .tool-card:hover {
+        background: rgba(40, 40, 60, 0.95) !important;
+        border-color: rgba(138, 43, 226, 0.5) !important;
+        transform: translateY(-5px);
+    }
+
+    body.dark-mode input, 
+    body.dark-mode select, 
+    body.dark-mode button {
+        background: rgba(40, 40, 60, 0.8) !important;
+        color: #ffffff !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    }
+
+    body.dark-mode .search-box {
+        background: rgba(30, 30, 50, 0.9) !important;
+        color: #ffffff !important;
+    }
+
+    body.dark-mode .developer-section {
+        background: rgba(30, 30, 50, 0.8) !important;
+    }
+
+    body.dark-mode footer {
+        background: rgba(20, 20, 40, 0.9) !important;
+    }
         
         /* MOBILE RESPONSIVENESS IMPROVEMENTS */
         @media screen and (max-width: 768px) {
@@ -339,7 +387,8 @@
     </script>
     
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧮</text></svg>">
+    <link rel="icon" type="image/png" href=data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><defs><linearGradient id='grad1' x1='0%' y1='0%' x2='0%' y2='100%'><stop offset='0%' style='stop-color:%23FF9933'/><stop offset='50%' style='stop-color:%23FFFFFF'/><stop offset='100%' style='stop-color:%23138808'/></linearGradient></defs><rect width='100' height='100' fill='url(%23grad1)' rx='20'/><text x='50' y='65' font-family='Arial, sans-serif' font-size='48' font-weight='bold' text-anchor='middle' fill='%234A90E2'>ST</text></svg>" viewBox="0 0 100 100"><text y=".9em" font-size="90">📚</text></svg>">
+    <title>StudyTools India - 30+ Free Calculators & Tools for Students</title>
 <title>StudyTools India - 30+ Free Calculators & Tools for Students</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
