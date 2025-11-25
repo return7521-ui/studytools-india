@@ -1,0 +1,29 @@
+{
+  "name": "StudyTools India - Free Student Calculators",
+  "short_name": "StudyTools India",
+  "description": "Free online calculators for students - Percentage, CGPA, Age, BMI, Grade calculators. Study tools for JEE, NDA, ISC, CBSE students.",
+  "start_url": "/studytools-india/",
+  "scope": "/studytools-india/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#4CAF50",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192x192.png?text=ST",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://via.placeholder.com/512x512.png?text=ST",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "productivity", "utilities"],
+  "lang": "en-IN",
+  "dir": "ltr",
+  "prefer_related_applications": false
+}
