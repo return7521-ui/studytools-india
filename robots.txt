@@ -1,0 +1,36 @@
+# robots.txt for StudyTools India
+# Allow all search engines to crawl entire website
+
+# === SECTION 1: GLOBAL RULES FOR ALL ROBOTS ===
+User-agent: *
+Allow: /
+Crawl-delay: 1
+
+# Allow access to all calculators
+Allow: /*calculator*
+Allow: /*.html
+Allow: /*.css
+Allow: /*.js
+
+# === SECTION 2: GOOGLE BOT SPECIFIC RULES ===
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+# === SECTION 3: BING BOT SPECIFIC RULES ===
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+# === SECTION 4: OTHER SEARCH ENGINES ===
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# === SECTION 5: SITEMAP LOCATION ===
+Sitemap: https://return7521-ui.github.io/studytools-india/sitemap.xml
