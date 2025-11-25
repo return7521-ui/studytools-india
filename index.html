@@ -1438,13 +1438,11 @@ style.innerHTML = `
 }
 
 .tool-card {
-  animation: float 3s ease-in-out infinite;
-  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+/*   animation: float 3s ease-in-out infinite; - REMOVED FLOAT ANIMATION */
 }
 
 .tool-card:hover {
-  animation: glow 2s infinite, float 3s ease-in-out infinite;
-  transform: translateY(-15px) scale(1.03) !important;
+    animation: shimmer 3s ease-in-out infinite; /* REMOVED float, ADDED shimmer */  transform: translateY(-15px) scale(1.03) !important;
 }
 
 .logo {
