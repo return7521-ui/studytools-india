@@ -565,6 +565,23 @@ footer a:hover{color:#667eea}
 @keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 @media(max-width:768px){.tools-grid{grid-template-columns:1fr}.stats{flex-direction:column;gap:30px}h1{font-size:2em}.logo{font-size:2em}}
+      /* ===== FIX: Particles should not block clicks ===== */
+#particles-js {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ===== Ensure share buttons are clickable ===== */
+.social-share {
+  position: relative;
+  z-index: 9999;
+}
+
+.social-share a {
+  pointer-events: auto;
+}
 </style>
 </head>
 <body>
