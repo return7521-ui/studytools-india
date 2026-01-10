@@ -1382,41 +1382,57 @@ footer a:hover{color:#667eea}
                 from { text-shadow: 3px 3px 10px rgba(0,0,0,0.4), 0 0 20px rgba(255,255,255,0.3); }
                 to { text-shadow: 3px 3px 10px rgba(0,0,0,0.4), 0 0 40px rgba(255,255,255,0.6), 0 0 60px rgba(255,215,0,0.4); }
             }
+          .social-share-glass{
+  margin:40px auto;
+  max-width:900px;
+  padding:30px;
+  border-radius:25px;
+  backdrop-filter: blur(20px);
+  background: rgba(255,255,255,0.12);
+  box-shadow: 0 0 40px rgba(0,0,0,0.3);
+  text-align:center;
+}
+
+.share-title{
+  font-size:1.4rem;
+  font-weight:700;
+  margin-bottom:20px;
+  color:#fff;
+}
+
+.share-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:15px;
+  justify-content:center;
+}
+
+.btn{
+  padding:12px 22px;
+  border-radius:12px;
+  font-weight:600;
+  color:#fff;
+  text-decoration:none;
+  transition: all 0.3s ease;
+}
+
+.btn:hover{
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+.whatsapp{background:#25D366;}
+.telegram{background:#0088cc;}
+.facebook{background:#1877F2;}
+.twitter{background:#1DA1F2;}
+.linkedin{background:#0A66C2;}
+.instagram{background:#E4405F;}
+.snapchat{background:#FFFC00;color:#000;}
+.copy{background:#6A11CB;}
         </style>
 </footer>
   <!-- FREE Social Sharing Buttons -->
-<div class="social-share" style="margin:30px 0;text-align:center;padding:20px;background:rgba(255,255,255,0.1);border-radius:20px">
-    <p style="font-size:18px;margin-bottom:15px;font-weight:600;">📢 Share StudyTools India with your friends!</p>
-    <div style="display:flex;gap:15px;justify-content:center;flex-wrap:wrap;">
- <a href="https://wa.me/?text=Check%20out%20StudyTools%20India%20-%2030%2B%20Free%20Calculators%20for%20Students!%20Perfect%20for%20JEE%2C%20NDA%2C%20ISC%2C%20CBSE!%20https://return7521-ui.github.io/studytools-india/" target="_blank" rel="noopener noreferrer" style="background:#25D366;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s ease">
-            📱 WhatsApp
-        </a>
-        <a href="https://telegram.me/share/url?url=https://return7521-ui.github.io/studytools-india/&text=30%2B%20Free%20Calculators%20for%20Students!%20Perfect%20for%20JEE%2C%20NDA%2C%20ISC%2C%20CBSE%20prep.%20Check%20out%20StudyTools%20India!" target="_blank" rel="noopener noreferrer" style="background:#0088cc;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s ease">
-            ✈️ Telegram
-        </a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https://return7521-ui.github.io/studytools-india/" target="_blank" rel="noopener noreferrer" style="background:#1877F2;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s ease">
-            👥 Facebook
-        </a>
-        <a href="https://twitter.com/intent/tweet?text=30%2B%20Free%20Calculators%20for%20Students!%20Perfect%20for%20JEE%2C%20NDA%2C%20ISC%2C%20CBSE!&url=https://return7521-ui.github.io/studytools-india/&hashtags=StudyTools,JEE2025,ISC,CBSE,StudentLife" target="_blank" rel="noopener noreferrer" style="background:#1DA1F2;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s ease">
-            🐦 Twitter
-        </a>
-        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://return7521-ui.github.io/studytools-india/" target="_blank" rel="noopener noreferrer" style="background:#0A66C2;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s ease">
-            💼 LinkedIn
-        </a>
-        <a href="https://www.instagram.com/shashank_404_" target="_blank" rel="noopener noreferrer" style="background:#E4405F;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:transform 0.2s ease">
-            📸 Instagram
-        </a>
-        <a href="https://www.snapchat.com/add/sha.shank404" target="_blank" rel="noopener noreferrer"
-   style="background:#FFFC00;color:#000;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;">
-  👻 Add on Snapchat
-        </a>
-      <a href="javascript:void(0)" onclick="copySiteLink()"
-   style="background:#6A11CB;color:white;text-decoration:none;padding:12px 24px;border-radius:8px;font-weight:600;display:inline-flex;align-items:center;gap:8px;">
-  🔗 Copy Website Link
-      </a>
-    </div>
-    <p style="margin-top:15px;font-size:0.9em;opacity:0.8;">Help your friends discover these free study tools! 🎓</p>
-</div>
+
 
 </div>
 
@@ -1434,7 +1450,27 @@ function calcAge(){const d=document.getElementById('dob').value;if(!d){showResul
 function calcCountdown(){const e=document.getElementById('exam-date').value;if(!e){showResult('countdown-result','⚠️ Please enter exam date',false);return}const ex=new Date(e);const t=new Date();const diff=Math.ceil((ex-t)/(1000*60*60*24));if(diff<0)showResult('countdown-result','⚠️ Exam date has passed',false);else if(diff===0)showResult('countdown-result','🔥 Exam is TODAY! Good luck!',true);else showResult('countdown-result',`⏳ ${diff} days remaining<br>💪 Keep pushing!`,true)}
 
 // BMI Calculator
-function calcBMI(){const h=parseFloat(document.getElementById('height').value);const w=parseFloat(document.getElementById('weight').value);if(!h||!w){showResult('bmi-result','⚠️ Please enter both values',false);return}const bmi=((w/((h/100)**2)).toFixed(2));let cat='';if(bmi<18.5)cat='Underweight';else if(bmi<25)cat='Normal weight';else if(bmi<30)cat='Overweight';else cat='Obese';showResult('bmi-result',`BMI: ${bmi}<br>Category: ${cat}`,true)}
+function calcBMI(){const h=parseFloat(document.getElementById('height').value);const w=parseFloat(document.getElementById('weight').value);if(!h||!w){showResult('bmi-result','⚠️ Please enter both values',false);return<div class="social-share-glass">
+  <p class="share-title">📢 Share StudyTools India</p>
+
+  <div class="share-buttons">
+    <a class="btn whatsapp" href="https://wa.me/?text=Check%20out%20StudyTools%20India%20https://return7521-ui.github.io/studytools-india/" target="_blank">📱 WhatsApp</a>
+
+    <a class="btn telegram" href="https://t.me/share/url?url=https://return7521-ui.github.io/studytools-india/" target="_blank">✈️ Telegram</a>
+
+    <a class="btn facebook" href="https://www.facebook.com/sharer/sharer.php?u=https://return7521-ui.github.io/studytools-india/" target="_blank">👥 Facebook</a>
+
+    <a class="btn twitter" href="https://twitter.com/intent/tweet?url=https://return7521-ui.github.io/studytools-india/" target="_blank">🐦 Twitter</a>
+
+    <a class="btn linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https://return7521-ui.github.io/studytools-india/" target="_blank">💼 LinkedIn</a>
+
+    <a class="btn instagram" href="https://www.instagram.com/shashank_404_/" target="_blank">📸 Instagram</a>
+
+    <a class="btn snapchat" href="https://www.snapchat.com/add/sha.shank404" target="_blank">👻 Snapchat</a>
+
+    <a class="btn copy" href="javascript:void(0)" onclick="copySiteLink()">🔗 Copy Link</a>
+  </div>
+  </div>}const bmi=((w/((h/100)**2)).toFixed(2));let cat='';if(bmi<18.5)cat='Underweight';else if(bmi<25)cat='Normal weight';else if(bmi<30)cat='Overweight';else cat='Obese';showResult('bmi-result',`BMI: ${bmi}<br>Category: ${cat}`,true)}
 
 // Grade Calculator
 function calcGrade(){const m=parseFloat(document.getElementById('marks').value);const t=parseFloat(document.getElementById('total-marks').value);if(!m||!t){showResult('grade-result','⚠️ Please enter both marks',false);return}const p=((m/t)*100).toFixed(2);let g='';if(p>=90)g='A+ Grade';else if(p>=80)g='A Grade';else if(p>=70)g='B+ Grade';else if(p>=60)g='B Grade';else if(p>=50)g='C Grade';else if(p>=40)g='D Grade';else g='Fail';showResult('grade-result',`🎯 ${p}%<br>${g}`,true)}
@@ -1605,6 +1641,12 @@ if(typeof particlesJS !== 'undefined') {
   });
 }
 </script>
+  <script>
+function copySiteLink() {
+  navigator.clipboard.writeText("https://return7521-ui.github.io/studytools-india/");
+  alert("🔗 Link copied!\nPaste it in Instagram/Snapchat story or chat 🚀");
+}
+  </script>
   <script>
 function copySiteLink() {
   navigator.clipboard.writeText("https://return7521-ui.github.io/studytools-india/");
