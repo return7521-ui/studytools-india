@@ -3463,7 +3463,17 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
 <button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     <i class="fas fa-arrow-up"></i>
 </button>
-
+<button onclick="toggleCalc()" style="
+    position: fixed; bottom: 20px; right: 20px; 
+    width: 60px; height: 60px; border-radius: 50%; 
+    background: var(--primary); color: white; border: none;
+    box-shadow: 0 10px 25px var(--primary-glow);
+    z-index: 7000; cursor: pointer; font-size: 1.5rem;
+    display: flex; align-items: center; justify-content: center;
+">
+    <i class="fas fa-calculator"></i>
+</button>
+    
 <footer class="app-footer">
     <div class="footer-content">
         <div class="footer-brand">
