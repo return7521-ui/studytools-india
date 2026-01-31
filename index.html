@@ -90,6 +90,30 @@
             background: radial-gradient(circle at 50% 50%, var(--primary-glow), transparent 70%);
             opacity: 0.5; pointer-events: none;
         }
+        /* === CRITICAL REPAIRS === */
+
+/* 1. Fix Search Bar Text Overlap */
+#master-search {
+    padding-right: 150px !important; /* Space for "X Results Found" */
+    text-overflow: ellipsis;
+}
+
+/* 2. Fix Scientific Calculator Visibility */
+.calc-dock {
+    z-index: 9999 !important; /* Forces it ON TOP of everything */
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.3) !important;
+}
+
+/* 3. Prevent Horizontal Scrolling */
+body, html {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+/* 4. Fix Install/Share Button Styles */
+.header-actions { display: flex; gap: 10px; }
+.action-btn { position: relative; overflow: hidden; }
+        
     </style>
 </head>
 <body>
@@ -106,13 +130,18 @@
         </div>
 
         <div class="header-actions">
-            <button class="action-btn" id="install-btn" title="Install App">
-                <i class="fas fa-download"></i>
-            </button>
-            <button class="action-btn theme-toggle" onclick="toggleGlobalTheme()">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
+    <button class="action-btn" onclick="nativeShare()" title="Share Website">
+        <i class="fas fa-share-nodes"></i>
+    </button>
+
+    <button class="action-btn" id="install-btn" style="display: none;" title="Install App">
+        <i class="fas fa-download"></i>
+    </button>
+
+    <button class="action-btn theme-toggle" onclick="toggleGlobalTheme()">
+        <i class="fas fa-moon"></i>
+    </button>
+</div>
     </div>
 </header>
 
@@ -3381,9 +3410,9 @@
             <h4>StudyTools India</h4>
             <p>The Elite Academic Engine for ISC, JEE & NDA.</p>
             <div class="social-links">
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://instagram.com/VibeVaultReels" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/return7521-ui" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:support@studytools.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
         <div class="footer-links">
@@ -3394,111 +3423,152 @@
     </div>
     <div class="copyright-bar">
         &copy; <span id="year-span"></span> <b>Shashank Kushwaha</b>. All Rights Reserved.
-        <span style="opacity:0.5; margin-left:10px;">v4.0.0 (Beta)</span>
     </div>
 </footer>
 
 <div class="modal-overlay" id="modal-overlay" onclick="closeAllModals()"></div>
 
 <div class="modal-window" id="modal-about">
-    <div class="modal-header"><h3><i class="fas fa-user-astronaut"></i> Founder</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
-    <div class="modal-body">
-        <p><b>Shashank Kushwaha</b> is an ISC Student (Class 11 PCM) and Full-Stack Developer.</p>
-        <p>Created <b>StudyTools India</b> to solve "Calculation Fatigue" for JEE/NDA aspirants.</p>
-    </div>
+    <div class="modal-header"><h3>Founder</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
+    <div class="modal-body"><p>Created by <b>Shashank Kushwaha</b> (ISC Class 11 PCM).</p></div>
 </div>
-
-<div class="modal-window" id="modal-terms">
-    <div class="modal-header"><h3><i class="fas fa-gavel"></i> Terms</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
-    <div class="modal-body"><p>For educational use only. Not responsible for exam errors.</p></div>
-</div>
-
-<div class="modal-window" id="modal-privacy">
-    <div class="modal-header"><h3><i class="fas fa-user-shield"></i> Privacy</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
-    <div class="modal-body"><p>No data collection. All calculations happen on your device.</p></div>
-</div>
-
-<style>
-    /* Footer & Modal Styles */
-    .app-footer { margin-top: 50px; background: var(--card-glass); backdrop-filter: blur(20px); border-top: 1px solid var(--border-glass); padding: 40px 20px 100px; }
-    body.dark-mode .app-footer { background: var(--card-glass-dark); }
-    .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; }
-    .footer-brand h4 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 1.2rem; }
-    .social-links { margin-top: 15px; display: flex; gap: 15px; }
-    .social-links a { width: 35px; height: 35px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; text-decoration: none; }
-    .footer-links { display: flex; flex-direction: column; gap: 10px; }
-    .footer-links button { background: none; border: none; text-align: left; color: var(--text-dim); cursor: pointer; }
-    .copyright-bar { max-width: 1200px; margin: 30px auto 0; padding-top: 20px; border-top: 1px solid var(--border-glass); text-align: center; font-size: 0.8rem; color: var(--text-dim); }
-
-    /* Modal Styles */
-    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2900; display: none; }
-    .modal-overlay.active { display: block; }
-    .modal-window { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 90%; max-width: 500px; background: white; border-radius: 20px; z-index: 3000; padding: 25px; display: none; opacity: 0; transition: 0.3s; }
-    body.dark-mode .modal-window { background: #1e293b; color: white; }
-    .modal-window.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--primary); }
-    .close-modal { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dim); }
-
-    /* Scroll To Top Button */
-    #scroll-top-btn {
-        position: fixed; bottom: 90px; right: 20px; width: 50px; height: 50px;
-        background: var(--primary); color: white; border: none; border-radius: 50%;
-        box-shadow: 0 5px 15px var(--primary-glow); cursor: pointer; z-index: 1900;
-        display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
-        transition: 0.3s; opacity: 0; pointer-events: none;
-    }
-    #scroll-top-btn.visible { opacity: 0.8; pointer-events: all; }
-    #scroll-top-btn:hover { transform: translateY(-3px); opacity: 1; }
-
-    /* Scientific Calc Fix (Ensures it hides completely) */
-    .calc-dock { bottom: 0 !important; transform: translateY(100%); }
-    .calc-dock.active { transform: translateY(0); }
-</style>
-
 <script>
-    // --- SEARCH LOGIC ---
-    function filterTools() {
-        const input = document.getElementById('master-search'); // ID from Navbar
-        const filter = input.value.toLowerCase();
-        const cards = document.querySelectorAll('.tool-card');
+    // --- A. NIGHT MODE LOGIC ---
+    function toggleGlobalTheme() {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
         
-        cards.forEach(card => {
-            const tags = card.getAttribute('data-tags') || "";
-            const title = card.querySelector('h3').innerText.toLowerCase();
-            const category = card.getAttribute('data-category') || "";
-            
-            // Match Search
-            if (tags.includes(filter) || title.includes(filter)) {
-                card.style.display = "flex";
-                card.style.animation = "fadeIn 0.3s ease";
-            } else {
-                card.style.display = "none";
+        // Update Icon
+        const btn = document.querySelector('.theme-toggle i');
+        if(btn) btn.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
+    }
+    // Auto-Load Theme
+    if(localStorage.getItem('theme') === 'dark') {
+        document.body.classList.add('dark-mode');
+        const btn = document.querySelector('.theme-toggle i');
+        if(btn) btn.className = 'fas fa-sun';
+    }
+
+    // --- B. INSTALL APP LOGIC (PWA) ---
+    let deferredPrompt;
+    window.addEventListener('beforeinstallprompt', (e) => {
+        // Prevent Chrome 67 and earlier from automatically showing the prompt
+        e.preventDefault();
+        deferredPrompt = e;
+        // Show the install button now that it's available
+        const installBtn = document.getElementById('install-btn');
+        if(installBtn) {
+            installBtn.style.display = 'block';
+            installBtn.addEventListener('click', () => {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    if (choiceResult.outcome === 'accepted') {
+                        console.log('User accepted the A2HS prompt');
+                    }
+                    deferredPrompt = null;
+                });
+            });
+        }
+    });
+
+    // --- C. SOCIAL SHARE LOGIC ---
+    async function nativeShare() {
+        const shareData = {
+            title: 'StudyTools India',
+            text: '🚀 Check out this Elite Academic Toolkit for JEE/NDA/ISC students! Calculated my rank instantly.',
+            url: 'https://return7521-ui.github.io/StudyGraphs-India/'
+        };
+
+        if (navigator.share) {
+            try {
+                await navigator.share(shareData);
+            } catch (err) {
+                console.log('Share canceled');
             }
+        } else {
+            // Fallback: Copy to Clipboard
+            navigator.clipboard.writeText(shareData.url);
+            alert("Link copied to clipboard! Share it with your friends.");
+        }
+    }
+
+    // --- D. SEARCH ENGINE (Fixing Overlap & Logic) ---
+    const searchInput = document.getElementById('master-search');
+    if(searchInput) {
+        searchInput.addEventListener('keyup', function() {
+            const filter = this.value.toLowerCase();
+            const cards = document.querySelectorAll('.tool-card');
+            let visibleCount = 0;
+            
+            cards.forEach(card => {
+                const tags = card.getAttribute('data-tags') || "";
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                if (tags.includes(filter) || title.includes(filter)) {
+                    card.style.display = "flex";
+                    visibleCount++;
+                } else {
+                    card.style.display = "none";
+                }
+            });
+            
+            // Update the status text
+            const status = document.getElementById('search-count');
+            if(status) status.innerText = filter === "" ? "Ready" : `${visibleCount} Found`;
         });
     }
-    
-    // Attach Search Listener
-    document.getElementById('master-search').addEventListener('keyup', filterTools);
 
-    // --- MODAL & FOOTER LOGIC ---
+    // --- E. SCIENTIFIC CALC TOGGLE ---
+    function toggleCalc() {
+        const dock = document.getElementById('scientific-dock');
+        dock.classList.toggle('active');
+    }
+
+    // --- F. SCROLL TO TOP ---
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('scroll-top-btn');
+        if(btn) {
+            if (window.scrollY > 300) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'all';
+            } else {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
+        }
+    });
+
+    // --- G. FOOTER & MODALS ---
     document.getElementById('year-span').innerText = new Date().getFullYear();
     function openModal(id) {
         document.getElementById('modal-overlay').classList.add('active');
-        document.getElementById(id).classList.add('active');
+        const modal = document.getElementById(id);
+        if(modal) modal.classList.add('active');
     }
     function closeAllModals() {
         document.getElementById('modal-overlay').classList.remove('active');
         document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
     }
-    document.addEventListener('keydown', (e) => { if(e.key === "Escape") closeAllModals(); });
-
-    // --- SCROLL TO TOP LOGIC ---
-    window.addEventListener('scroll', () => {
-        const btn = document.getElementById('scroll-top-btn');
-        if (window.scrollY > 300) btn.classList.add('visible');
-        else btn.classList.remove('visible');
-    });
-
-    // --- PWA REGISTRATION ---
+    
+    // --- H. PWA REGISTRATION ---
     if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 </script>
+
+<style>
+    /* CRITICAL LAYOUT FIXES FOR FOOTER & BUTTONS */
+    #scroll-top-btn {
+        position: fixed; bottom: 90px; right: 20px;
+        width: 50px; height: 50px; border-radius: 50%;
+        background: var(--primary); color: white; border: none;
+        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        z-index: 9000; cursor: pointer; opacity: 0; pointer-events: none;
+        transition: 0.3s; display: flex; align-items: center; justify-content: center;
+    }
+    
+    .app-footer {
+        position: relative; z-index: 10;
+        margin-top: 50px; padding-bottom: 120px; /* Space for Calc */
+        background: var(--card-glass);
+        border-top: 1px solid var(--border-glass);
+    }
+</style>
