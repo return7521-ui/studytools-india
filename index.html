@@ -3473,63 +3473,99 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
 ">
     <i class="fas fa-calculator"></i>
 </button>
-    
-<footer class="app-footer">
+
+    <footer class="app-footer">
     <div class="footer-content">
         <div class="footer-brand">
             <h4>StudyTools India</h4>
-            <p>The Elite Academic Engine for ISC, JEE & NDA.</p>
+            <p>Empowering the next generation of engineers with <b>Precision</b>, <b>Speed</b>, and <b>Zero-Cost</b> academic intelligence.</p>
+            
             <div class="social-links">
-                <a href="https://instagram.com/studytoolsindia" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://github.com/return7521-ui" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto: return7521@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://instagram.com/VibeVaultReels" target="_blank" class="social-btn" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://github.com/return7521-ui" target="_blank" class="social-btn" title="GitHub Source">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="mailto:shashank@studytools.com" class="social-btn" title="Contact Architect">
+                    <i class="fas fa-envelope"></i>
+                </a>
             </div>
         </div>
+
         <div class="footer-links">
-            <button onclick="openModal('modal-about')">About Founder</button>
-            <button onclick="openModal('modal-terms')">Terms of Service</button>
-            <button onclick="openModal('modal-privacy')">Privacy Policy</button>
+            <button class="legal-link" onclick="openModal('modal-about')">Architect Profile</button>
+            <button class="legal-link" onclick="openModal('modal-terms')">Terms of Use</button>
+            <button class="legal-link" onclick="openModal('modal-privacy')">Data Protocol</button>
         </div>
     </div>
+
     <div class="copyright-bar">
-        &copy; <span id="year-span"></span> <b>Shashank Kushwaha</b>. All Rights Reserved.
+        Designed & Engineered by <b>Shashank Kushwaha</b> • &copy; <span id="year-span"></span>
     </div>
 </footer>
 
+<div class="modal-overlay" id="modal-overlay" onclick="closeAllModals()"></div>
+
 <div class="modal-window" id="modal-about">
     <div class="modal-header">
-        <h3><i class="fas fa-code-branch"></i> Architect Vision</h3>
+        <h3><i class="fas fa-fingerprint"></i> Lead Architect</h3>
         <button class="close-modal" onclick="closeAllModals()">&times;</button>
     </div>
-    
     <div class="modal-body">
         <div class="pro-card-header">
             <div class="pro-avatar">SK</div>
             <div class="pro-info">
                 <h4>Shashank Kushwaha</h4>
-                <span>Lead Architect & Engineer</span>
+                <span>Full-Stack Engineer</span>
             </div>
         </div>
-
         <div class="pro-bio">
-            <p>Redefining the digital academic landscape with <b>Precision-Engineered</b> tools. StudyTools India is a <b>High-Performance Academic Ecosystem</b> designed to bridge the gap between complex theory and instant application for <b>ISC, JEE, and NDA</b> aspirants.</p>
+            <p><b>StudyTools India</b> is a high-performance PWA built to eliminate calculation fatigue for <b>JEE/ISC</b> aspirants. It runs entirely on client-side logic, ensuring 0ms latency and 100% privacy.</p>
         </div>
-
         <div class="pro-stack">
-            <small>SYSTEM CORE & ARCHITECTURE</small>
+            <small>CORE ARCHITECTURE</small>
             <div class="stack-badges">
-                <span class="tech-badge"><i class="fab fa-js-square" style="color:#f7df1e;"></i> ES6+ Engine</span>
-                <span class="tech-badge"><i class="fas fa-layer-group" style="color:#6366f1;"></i> Glassmorphism UI</span>
-                <span class="tech-badge"><i class="fas fa-bolt" style="color:#eab308;"></i> PWA Native</span>
-                <span class="tech-badge"><i class="fas fa-shield-alt" style="color:#10b981;"></i> Local Privacy</span>
+                <span class="tech-badge">Javascript ES6+</span>
+                <span class="tech-badge">Glassmorphism</span>
+                <span class="tech-badge">PWA Native</span>
             </div>
-        </div>
-        
-        <div style="margin-top:20px; text-align:center; border-top: 1px dashed var(--border-glass); padding-top: 15px;">
-             <small style="color:var(--text-dim);">Deployed via GitHub Pages • v4.0.0 Stable</small>
         </div>
     </div>
 </div>
+
+<div class="modal-window" id="modal-terms">
+    <div class="modal-header">
+        <h3><i class="fas fa-scale-balanced"></i> Legal Framework</h3>
+        <button class="close-modal" onclick="closeAllModals()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p style="font-size:0.9rem; color:var(--text-dim); line-height:1.6;">
+            <b>1. Educational Purpose:</b> This tool is for verification and learning assistance only. It is not a substitute for official academic computation.<br><br>
+            <b>2. Intellectual Property:</b> The code, design system, and algorithms are the intellectual property of <b>Shashank Kushwaha</b>. Cloning for commercial use is prohibited.<br><br>
+            <b>3. Liability:</b> The developer is not liable for academic errors resulting from misuse of these tools.
+        </p>
+    </div>
+</div>
+
+<div class="modal-window" id="modal-privacy">
+    <div class="modal-header">
+        <h3><i class="fas fa-shield-halved"></i> Data Protocol</h3>
+        <button class="close-modal" onclick="closeAllModals()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <p style="font-size:0.9rem; color:var(--text-dim); line-height:1.6;">
+            <b>Zero-Knowledge Architecture:</b><br>
+            We believe your grades and data are personal. 
+            <ul>
+                <li>No data is sent to any server.</li>
+                <li>No tracking cookies are used.</li>
+                <li>Inputs are processed instantly in your browser's RAM and cleared on refresh.</li>
+            </ul>
+        </p>
+    </div>
+</div>
+    
 
 <script>
     // --- A. NIGHT MODE LOGIC ---
@@ -3807,6 +3843,26 @@ body.dark-mode .app-footer {
     function toggleCalc() {
         const dock = document.getElementById('scientific-dock');
         dock.classList.toggle('active'); // This triggers the slide up/down
+    }
+        // --- UPDATED MODAL CONTROLLER (Fixes "Nothing Happens") ---
+    function openModal(id) {
+        const overlay = document.getElementById('modal-overlay');
+        const modal = document.getElementById(id);
+        
+        if (overlay && modal) {
+            overlay.classList.add('active');
+            modal.classList.add('active');
+            // Z-Index override to ensure it pops over the footer/calc
+            modal.style.zIndex = '10001'; 
+            overlay.style.zIndex = '10000';
+        } else {
+            console.error('Target modal not found:', id);
+        }
+    }
+
+    function closeAllModals() {
+        document.getElementById('modal-overlay').classList.remove('active');
+        document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
     }
     
 </style>
