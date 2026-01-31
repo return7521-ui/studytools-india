@@ -2041,170 +2041,7 @@
         res.classList.add('show');
     }
 </script>
-<footer class="app-footer">
-    <div class="footer-content">
-        <div class="footer-brand">
-            <h4>StudyTools India</h4>
-            <p>The Elite Academic Engine for ISC, JEE & NDA.</p>
-            <div class="social-links">
-                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-        </div>
-        
-        <div class="footer-links">
-            <button onclick="openModal('modal-about')">About Founder</button>
-            <button onclick="openModal('modal-terms')">Terms of Service</button>
-            <button onclick="openModal('modal-privacy')">Privacy Policy</button>
-            <button onclick="openModal('modal-contact')">Report Bug</button>
-        </div>
-    </div>
-    
-    <div class="copyright-bar">
-        &copy; <span id="year-span"></span> <b>Shashank Kushwaha</b>. All Rights Reserved.
-        <span style="opacity:0.5; margin-left:10px;">v4.0.0 (Beta)</span>
-    </div>
-</footer>
 
-<div class="modal-overlay" id="modal-overlay" onclick="closeAllModals()"></div>
-
-<div class="modal-window" id="modal-about">
-    <div class="modal-header">
-        <h3><i class="fas fa-user-astronaut"></i> About the Founder</h3>
-        <button class="close-modal" onclick="closeAllModals()">&times;</button>
-    </div>
-    <div class="modal-body">
-        <p><b>Shashank Kushwaha</b> is an ISC Student (Class 11 PCM) and a passionate Full-Stack Developer from Unnao, Uttar Pradesh.</p>
-        <p>He created <b>StudyTools India</b> to solve the "Calculation Fatigue" faced by JEE/NDA aspirants. His mission is to provide professional-grade, free academic tools to every student in India.</p>
-        <hr>
-        <p><small>Other Projects: <b>StudyGraphs India</b>, <b>VibeVaultReels</b></small></p>
-    </div>
-</div>
-
-<div class="modal-window" id="modal-terms">
-    <div class="modal-header">
-        <h3><i class="fas fa-gavel"></i> Terms of Service</h3>
-        <button class="close-modal" onclick="closeAllModals()">&times;</button>
-    </div>
-    <div class="modal-body">
-        <h4>1. Educational Use Only</h4>
-        <p>These tools are designed for learning and verification. StudyTools India is not responsible for errors in critical exams or engineering projects.</p>
-        <h4>2. Intellectual Property</h4>
-        <p>The code, design, and "StudyTools India" branding are the intellectual property of Shashank Kushwaha. Unauthorized cloning is prohibited.</p>
-        <h4>3. User Data</h4>
-        <p>We do not store your calculation data on any server. All processing happens locally on your device.</p>
-    </div>
-</div>
-
-<div class="modal-window" id="modal-privacy">
-    <div class="modal-header">
-        <h3><i class="fas fa-user-shield"></i> Privacy Policy</h3>
-        <button class="close-modal" onclick="closeAllModals()">&times;</button>
-    </div>
-    <div class="modal-body">
-        <p><b>Your Privacy is our Priority.</b></p>
-        <ul>
-            <li><b>No Cookies:</b> We do not track your browsing history.</li>
-            <li><b>No Data Collection:</b> Inputs entered in calculators (e.g., Marks, Salary) are never sent to a server.</li>
-            <li><b>Local Storage:</b> We only use local storage to remember your "Dark Mode" preference.</li>
-        </ul>
-    </div>
-</div>
-
-<style>
-    /* --- FOOTER STYLING --- */
-    .app-footer {
-        margin-top: 50px;
-        background: var(--card-glass);
-        backdrop-filter: blur(20px);
-        border-top: 1px solid var(--border-glass);
-        padding: 40px 20px 100px; /* Extra padding for floating dock */
-    }
-    body.dark-mode .app-footer { background: var(--card-glass-dark); }
-
-    .footer-content {
-        max-width: 1200px; margin: 0 auto;
-        display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px;
-    }
-
-    .footer-brand h4 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 1.2rem; margin-bottom: 10px; }
-    .footer-brand p { font-size: 0.9rem; color: var(--text-dim); max-width: 300px; }
-    
-    .social-links { margin-top: 15px; display: flex; gap: 15px; }
-    .social-links a {
-        width: 35px; height: 35px; border-radius: 50%; background: rgba(99, 102, 241, 0.1);
-        color: var(--primary); display: flex; align-items: center; justify-content: center;
-        text-decoration: none; transition: 0.3s;
-    }
-    .social-links a:hover { background: var(--primary); color: white; transform: translateY(-3px); }
-
-    .footer-links { display: flex; flex-direction: column; gap: 10px; }
-    .footer-links button {
-        background: none; border: none; text-align: left;
-        color: var(--text-dim); cursor: pointer; font-size: 0.9rem;
-        transition: 0.2s;
-    }
-    .footer-links button:hover { color: var(--primary); text-decoration: underline; }
-
-    .copyright-bar {
-        max-width: 1200px; margin: 30px auto 0; padding-top: 20px;
-        border-top: 1px solid var(--border-glass);
-        text-align: center; font-size: 0.8rem; color: var(--text-dim);
-    }
-
-    /* --- MODAL SYSTEM STYLING --- */
-    .modal-overlay {
-        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-        background: rgba(0,0,0,0.6); backdrop-filter: blur(5px);
-        z-index: 2900; display: none; opacity: 0; transition: opacity 0.3s;
-    }
-    .modal-overlay.active { display: block; opacity: 1; }
-
-    .modal-window {
-        position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9);
-        width: 90%; max-width: 500px; max-height: 80vh;
-        background: white; border-radius: 20px;
-        z-index: 3000; padding: 25px;
-        box-shadow: 0 20px 50px rgba(0,0,0,0.3);
-        display: none; opacity: 0; transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        overflow-y: auto;
-    }
-    body.dark-mode .modal-window { background: #1e293b; border: 1px solid var(--border-glass); }
-
-    .modal-window.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
-
-    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-    .modal-header h3 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 1.1rem; }
-    
-    .close-modal {
-        background: none; border: none; font-size: 1.5rem; color: var(--text-dim); cursor: pointer;
-    }
-    
-    .modal-body p, .modal-body li { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); margin-bottom: 10px; }
-    .modal-body h4 { margin-top: 15px; margin-bottom: 5px; color: var(--primary); }
-</style>
-
-<script>
-    // --- DYNAMIC YEAR UPDATE ---
-    document.getElementById('year-span').innerText = new Date().getFullYear();
-
-    // --- MODAL CONTROLLER ---
-    function openModal(id) {
-        document.getElementById('modal-overlay').classList.add('active');
-        document.getElementById(id).classList.add('active');
-    }
-
-    function closeAllModals() {
-        document.getElementById('modal-overlay').classList.remove('active');
-        document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
-    }
-
-    // Close on Escape Key
-    document.addEventListener('keydown', (e) => {
-        if(e.key === "Escape") closeAllModals();
-    });
-</script>
 <div class="tool-card" data-category="utility" data-tool-id="temp-pro" data-tags="physics chemistry temperature celsius fahrenheit kelvin conversion">
     <div class="tool-header">
         <div class="tool-icon" style="background:rgba(239, 68, 68, 0.1); color:#ef4444">
@@ -3533,4 +3370,135 @@
     
     // Initialize Truth Table
     setTimeout(runTruthPro, 1000); // Auto-load on start
+</script>
+<button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<footer class="app-footer">
+    <div class="footer-content">
+        <div class="footer-brand">
+            <h4>StudyTools India</h4>
+            <p>The Elite Academic Engine for ISC, JEE & NDA.</p>
+            <div class="social-links">
+                <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer-links">
+            <button onclick="openModal('modal-about')">About Founder</button>
+            <button onclick="openModal('modal-terms')">Terms of Service</button>
+            <button onclick="openModal('modal-privacy')">Privacy Policy</button>
+        </div>
+    </div>
+    <div class="copyright-bar">
+        &copy; <span id="year-span"></span> <b>Shashank Kushwaha</b>. All Rights Reserved.
+        <span style="opacity:0.5; margin-left:10px;">v4.0.0 (Beta)</span>
+    </div>
+</footer>
+
+<div class="modal-overlay" id="modal-overlay" onclick="closeAllModals()"></div>
+
+<div class="modal-window" id="modal-about">
+    <div class="modal-header"><h3><i class="fas fa-user-astronaut"></i> Founder</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
+    <div class="modal-body">
+        <p><b>Shashank Kushwaha</b> is an ISC Student (Class 11 PCM) and Full-Stack Developer.</p>
+        <p>Created <b>StudyTools India</b> to solve "Calculation Fatigue" for JEE/NDA aspirants.</p>
+    </div>
+</div>
+
+<div class="modal-window" id="modal-terms">
+    <div class="modal-header"><h3><i class="fas fa-gavel"></i> Terms</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
+    <div class="modal-body"><p>For educational use only. Not responsible for exam errors.</p></div>
+</div>
+
+<div class="modal-window" id="modal-privacy">
+    <div class="modal-header"><h3><i class="fas fa-user-shield"></i> Privacy</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
+    <div class="modal-body"><p>No data collection. All calculations happen on your device.</p></div>
+</div>
+
+<style>
+    /* Footer & Modal Styles */
+    .app-footer { margin-top: 50px; background: var(--card-glass); backdrop-filter: blur(20px); border-top: 1px solid var(--border-glass); padding: 40px 20px 100px; }
+    body.dark-mode .app-footer { background: var(--card-glass-dark); }
+    .footer-content { max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 30px; }
+    .footer-brand h4 { font-family: 'Orbitron', sans-serif; color: var(--primary); font-size: 1.2rem; }
+    .social-links { margin-top: 15px; display: flex; gap: 15px; }
+    .social-links a { width: 35px; height: 35px; border-radius: 50%; background: rgba(99, 102, 241, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; text-decoration: none; }
+    .footer-links { display: flex; flex-direction: column; gap: 10px; }
+    .footer-links button { background: none; border: none; text-align: left; color: var(--text-dim); cursor: pointer; }
+    .copyright-bar { max-width: 1200px; margin: 30px auto 0; padding-top: 20px; border-top: 1px solid var(--border-glass); text-align: center; font-size: 0.8rem; color: var(--text-dim); }
+
+    /* Modal Styles */
+    .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 2900; display: none; }
+    .modal-overlay.active { display: block; }
+    .modal-window { position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.9); width: 90%; max-width: 500px; background: white; border-radius: 20px; z-index: 3000; padding: 25px; display: none; opacity: 0; transition: 0.3s; }
+    body.dark-mode .modal-window { background: #1e293b; color: white; }
+    .modal-window.active { display: block; opacity: 1; transform: translate(-50%, -50%) scale(1); }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; color: var(--primary); }
+    .close-modal { background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-dim); }
+
+    /* Scroll To Top Button */
+    #scroll-top-btn {
+        position: fixed; bottom: 90px; right: 20px; width: 50px; height: 50px;
+        background: var(--primary); color: white; border: none; border-radius: 50%;
+        box-shadow: 0 5px 15px var(--primary-glow); cursor: pointer; z-index: 1900;
+        display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+        transition: 0.3s; opacity: 0; pointer-events: none;
+    }
+    #scroll-top-btn.visible { opacity: 0.8; pointer-events: all; }
+    #scroll-top-btn:hover { transform: translateY(-3px); opacity: 1; }
+
+    /* Scientific Calc Fix (Ensures it hides completely) */
+    .calc-dock { bottom: 0 !important; transform: translateY(100%); }
+    .calc-dock.active { transform: translateY(0); }
+</style>
+
+<script>
+    // --- SEARCH LOGIC ---
+    function filterTools() {
+        const input = document.getElementById('master-search'); // ID from Navbar
+        const filter = input.value.toLowerCase();
+        const cards = document.querySelectorAll('.tool-card');
+        
+        cards.forEach(card => {
+            const tags = card.getAttribute('data-tags') || "";
+            const title = card.querySelector('h3').innerText.toLowerCase();
+            const category = card.getAttribute('data-category') || "";
+            
+            // Match Search
+            if (tags.includes(filter) || title.includes(filter)) {
+                card.style.display = "flex";
+                card.style.animation = "fadeIn 0.3s ease";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    }
+    
+    // Attach Search Listener
+    document.getElementById('master-search').addEventListener('keyup', filterTools);
+
+    // --- MODAL & FOOTER LOGIC ---
+    document.getElementById('year-span').innerText = new Date().getFullYear();
+    function openModal(id) {
+        document.getElementById('modal-overlay').classList.add('active');
+        document.getElementById(id).classList.add('active');
+    }
+    function closeAllModals() {
+        document.getElementById('modal-overlay').classList.remove('active');
+        document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
+    }
+    document.addEventListener('keydown', (e) => { if(e.key === "Escape") closeAllModals(); });
+
+    // --- SCROLL TO TOP LOGIC ---
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('scroll-top-btn');
+        if (window.scrollY > 300) btn.classList.add('visible');
+        else btn.classList.remove('visible');
+    });
+
+    // --- PWA REGISTRATION ---
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
 </script>
