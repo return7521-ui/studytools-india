@@ -113,7 +113,49 @@ body, html {
 /* 4. Fix Install/Share Button Styles */
 .header-actions { display: flex; gap: 10px; }
 .action-btn { position: relative; overflow: hidden; }
-        
+        /* === PROFESSIONAL DEVELOPER CARD STYLING === */
+.pro-card-header {
+    display: flex; align-items: center; gap: 20px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--border-glass);
+    margin-bottom: 20px;
+}
+
+.pro-avatar {
+    width: 60px; height: 60px;
+    background: linear-gradient(135deg, var(--primary), #818cf8);
+    color: white; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Orbitron', sans-serif; font-weight: 700; font-size: 1.5rem;
+    box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.pro-info h4 { font-size: 1.2rem; margin-bottom: 4px; color: var(--text-main); }
+.pro-info span { 
+    font-size: 0.85rem; color: var(--primary); 
+    font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; 
+}
+
+.pro-bio p {
+    font-size: 0.95rem; line-height: 1.7; color: var(--text-dim); margin-bottom: 15px;
+}
+.pro-bio b { color: var(--text-main); font-weight: 600; }
+
+.pro-stack {
+    background: rgba(99, 102, 241, 0.05);
+    padding: 15px; border-radius: 12px;
+    border: 1px solid var(--border-glass);
+}
+.pro-stack small {
+    display: block; font-size: 0.7rem; font-weight: 700; 
+    color: var(--text-dim); margin-bottom: 10px; text-transform: uppercase;
+}
+.stack-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.tech-badge {
+    font-size: 0.75rem; padding: 6px 12px; border-radius: 20px;
+    background: white; border: 1px solid var(--border-glass);
+    color: var(--text-main); display: flex; align-items: center; gap: 6px;
+}
+body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     </style>
 </head>
 <body>
@@ -3410,9 +3452,9 @@ body, html {
             <h4>StudyTools India</h4>
             <p>The Elite Academic Engine for ISC, JEE & NDA.</p>
             <div class="social-links">
-                <a href="https://instagram.com/VibeVaultReels" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://instagram.com/studytoolsindia" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://github.com/return7521-ui" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="mailto:support@studytools.com"><i class="fas fa-envelope"></i></a>
+                <a href="mailto: return7521@gmail.com"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
         <div class="footer-links">
@@ -3426,12 +3468,41 @@ body, html {
     </div>
 </footer>
 
-<div class="modal-overlay" id="modal-overlay" onclick="closeAllModals()"></div>
-
 <div class="modal-window" id="modal-about">
-    <div class="modal-header"><h3>Founder</h3><button class="close-modal" onclick="closeAllModals()">&times;</button></div>
-    <div class="modal-body"><p>Created by <b>Shashank Kushwaha</b> (ISC Class 11 PCM).</p></div>
+    <div class="modal-header">
+        <h3><i class="fas fa-code-branch"></i> Architect Vision</h3>
+        <button class="close-modal" onclick="closeAllModals()">&times;</button>
+    </div>
+    
+    <div class="modal-body">
+        <div class="pro-card-header">
+            <div class="pro-avatar">SK</div>
+            <div class="pro-info">
+                <h4>Shashank Kushwaha</h4>
+                <span>Lead Architect & Engineer</span>
+            </div>
+        </div>
+
+        <div class="pro-bio">
+            <p>Redefining the digital academic landscape with <b>Precision-Engineered</b> tools. StudyTools India is a <b>High-Performance Academic Ecosystem</b> designed to bridge the gap between complex theory and instant application for <b>ISC, JEE, and NDA</b> aspirants.</p>
+        </div>
+
+        <div class="pro-stack">
+            <small>SYSTEM CORE & ARCHITECTURE</small>
+            <div class="stack-badges">
+                <span class="tech-badge"><i class="fab fa-js-square" style="color:#f7df1e;"></i> ES6+ Engine</span>
+                <span class="tech-badge"><i class="fas fa-layer-group" style="color:#6366f1;"></i> Glassmorphism UI</span>
+                <span class="tech-badge"><i class="fas fa-bolt" style="color:#eab308;"></i> PWA Native</span>
+                <span class="tech-badge"><i class="fas fa-shield-alt" style="color:#10b981;"></i> Local Privacy</span>
+            </div>
+        </div>
+        
+        <div style="margin-top:20px; text-align:center;">
+             <small style="color:var(--text-dim);">Deployed via GitHub Pages • v4.0.0 Stable</small>
+        </div>
+    </div>
 </div>
+
 <script>
     // --- A. NIGHT MODE LOGIC ---
     function toggleGlobalTheme() {
@@ -3472,12 +3543,12 @@ body, html {
         }
     });
 
-    // --- C. SOCIAL SHARE LOGIC ---
+        // --- C. SOCIAL SHARE LOGIC (PROFESSIONAL UPGRADE) ---
     async function nativeShare() {
         const shareData = {
-            title: 'StudyTools India',
-            text: '🚀 Check out this Elite Academic Toolkit for JEE/NDA/ISC students! Calculated my rank instantly.',
-            url: 'https://return7521-ui.github.io/StudyGraphs-India/'
+            title: 'StudyTools India | Elite Academic Engine',
+            text: '🚀 Experience the Next-Gen Academic Toolkit. Precision calculators for JEE, NDA & ISC designed by Shashank Kushwaha. Try the PWA now:',
+            url: 'https://return7521-ui.github.io/studytoolsindia/'
         };
 
         if (navigator.share) {
@@ -3489,7 +3560,7 @@ body, html {
         } else {
             // Fallback: Copy to Clipboard
             navigator.clipboard.writeText(shareData.url);
-            alert("Link copied to clipboard! Share it with your friends.");
+            alert("System Link copied to clipboard.");
         }
     }
 
