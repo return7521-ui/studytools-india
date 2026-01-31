@@ -3684,4 +3684,44 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
         background: var(--card-glass);
         border-top: 1px solid var(--border-glass);
     }
+    /* === FIXED CALCULATOR DOCK (The Drawer Logic) === */
+.calc-dock {
+    position: fixed;
+    bottom: 0; 
+    left: 0; 
+    width: 100%;
+    
+    /* 1. Force it to sit ON TOP of footer when open */
+    z-index: 8000 !important; 
+    
+    /* 2. HIDE IT by pushing it 100% down (off-screen) */
+    transform: translateY(100%); 
+    
+    /* 3. Smooth Slide Animation */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    
+    /* Visual styling */
+    background: var(--card-glass);
+    backdrop-filter: blur(30px);
+    border-top: 1px solid var(--border-glass);
+    border-radius: 30px 30px 0 0;
+    box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
+}
+
+/* This class pulls it back up when you click the button */
+.calc-dock.active {
+    transform: translateY(0) !important;
+}
+
+/* Handle Design */
+.calc-handle {
+    padding: 15px; text-align: center; cursor: pointer;
+    color: var(--primary); font-weight: 700;
+    }
+        // --- SCIENTIFIC CALC TOGGLE ---
+    function toggleCalc() {
+        const dock = document.getElementById('scientific-dock');
+        dock.classList.toggle('active'); // This triggers the slide up/down
+    }
+    
 </style>
