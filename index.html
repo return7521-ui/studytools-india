@@ -3463,31 +3463,37 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
 <button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
     <i class="fas fa-arrow-up"></i>
 </button>
+
+<button id="scroll-top-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
 <button onclick="toggleCalc()" style="
     position: fixed; bottom: 20px; right: 20px; 
     width: 60px; height: 60px; border-radius: 50%; 
     background: var(--primary); color: white; border: none;
     box-shadow: 0 10px 25px var(--primary-glow);
-    z-index: 7000; cursor: pointer; font-size: 1.5rem;
+    z-index: 9500; cursor: pointer; font-size: 1.5rem;
     display: flex; align-items: center; justify-content: center;
-">
+    transition: 0.2s;
+" title="Open Calculator">
     <i class="fas fa-calculator"></i>
 </button>
 
-    <footer class="app-footer">
+<footer class="app-footer">
     <div class="footer-content">
         <div class="footer-brand">
             <h4>StudyTools India</h4>
             <p>Empowering the next generation of engineers with <b>Precision</b>, <b>Speed</b>, and <b>Zero-Cost</b> academic intelligence.</p>
             
             <div class="social-links">
-                <a href="https://instagram.com/VibeVaultReels" target="_blank" class="social-btn" title="Instagram">
+                <a href="https://instagram.com/studytoolsindia" target="_blank" class="social-btn" title="Instagram">
                     <i class="fab fa-instagram"></i>
                 </a>
                 <a href="https://github.com/return7521-ui" target="_blank" class="social-btn" title="GitHub Source">
                     <i class="fab fa-github"></i>
                 </a>
-                <a href="mailto:shashank@studytools.com" class="social-btn" title="Contact Architect">
+                <a href="mailto:return7521@gmail.com" class="social-btn" title="Contact Architect">
                     <i class="fas fa-envelope"></i>
                 </a>
             </div>
@@ -3541,9 +3547,9 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     </div>
     <div class="modal-body">
         <p style="font-size:0.9rem; color:var(--text-dim); line-height:1.6;">
-            <b>1. Educational Purpose:</b> This tool is for verification and learning assistance only. It is not a substitute for official academic computation.<br><br>
-            <b>2. Intellectual Property:</b> The code, design system, and algorithms are the intellectual property of <b>Shashank Kushwaha</b>. Cloning for commercial use is prohibited.<br><br>
-            <b>3. Liability:</b> The developer is not liable for academic errors resulting from misuse of these tools.
+            <b>1. Educational Purpose:</b> This tool is for verification and learning assistance only.<br><br>
+            <b>2. Intellectual Property:</b> The code and design are the intellectual property of <b>Shashank Kushwaha</b>.<br><br>
+            <b>3. Liability:</b> The developer is not liable for academic errors resulting from misuse.
         </p>
     </div>
 </div>
@@ -3556,16 +3562,14 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     <div class="modal-body">
         <p style="font-size:0.9rem; color:var(--text-dim); line-height:1.6;">
             <b>Zero-Knowledge Architecture:</b><br>
-            We believe your grades and data are personal. 
             <ul>
                 <li>No data is sent to any server.</li>
                 <li>No tracking cookies are used.</li>
-                <li>Inputs are processed instantly in your browser's RAM and cleared on refresh.</li>
+                <li>Inputs are processed instantly in your browser's RAM.</li>
             </ul>
         </p>
     </div>
 </div>
-    
 
 <script>
     // --- A. NIGHT MODE LOGIC ---
@@ -3573,62 +3577,87 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
         document.body.classList.toggle('dark-mode');
         const isDark = document.body.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        
-        // Update Icon
         const btn = document.querySelector('.theme-toggle i');
         if(btn) btn.className = isDark ? 'fas fa-sun' : 'fas fa-moon';
     }
-    // Auto-Load Theme
+    // Auto-Load
     if(localStorage.getItem('theme') === 'dark') {
         document.body.classList.add('dark-mode');
         const btn = document.querySelector('.theme-toggle i');
         if(btn) btn.className = 'fas fa-sun';
     }
 
-    // --- B. INSTALL APP LOGIC (PWA) ---
+    // --- B. INSTALL APP LOGIC ---
     let deferredPrompt;
     window.addEventListener('beforeinstallprompt', (e) => {
-        // Prevent Chrome 67 and earlier from automatically showing the prompt
         e.preventDefault();
         deferredPrompt = e;
-        // Show the install button now that it's available
         const installBtn = document.getElementById('install-btn');
         if(installBtn) {
             installBtn.style.display = 'block';
             installBtn.addEventListener('click', () => {
                 deferredPrompt.prompt();
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    if (choiceResult.outcome === 'accepted') {
-                        console.log('User accepted the A2HS prompt');
-                    }
-                    deferredPrompt = null;
-                });
+                deferredPrompt.userChoice.then((choiceResult) => { deferredPrompt = null; });
             });
         }
     });
 
-        // --- C. SOCIAL SHARE LOGIC (PROFESSIONAL UPGRADE) ---
+    // --- C. SOCIAL SHARE LOGIC (PROFESSIONAL) ---
     async function nativeShare() {
         const shareData = {
             title: 'StudyTools India | Elite Academic Engine',
             text: '🚀 Experience the Next-Gen Academic Toolkit. Precision calculators for JEE, NDA & ISC designed by Shashank Kushwaha. Try the PWA now:',
-            url: 'https://return7521-ui.github.io/studytoolsindia/'
+            url: 'https://return7521-ui.github.io/studytools-india/'
         };
-
         if (navigator.share) {
-            try {
-                await navigator.share(shareData);
-            } catch (err) {
-                console.log('Share canceled');
-            }
+            try { await navigator.share(shareData); } catch (err) {}
         } else {
-            // Fallback: Copy to Clipboard
             navigator.clipboard.writeText(shareData.url);
             alert("System Link copied to clipboard.");
         }
     }
 
-    // --- D. SEARCH ENGINE (Fixing Overlap & Logic) ---
+    // --- D. MODAL CONTROLLER (Fixes "Nothing Happens") ---
+    function openModal(id) {
+        const overlay = document.getElementById('modal-overlay');
+        const modal = document.getElementById(id);
+        
+        if (overlay && modal) {
+            overlay.classList.add('active');
+            modal.classList.add('active');
+        } else {
+            console.error('Target modal not found:', id);
+        }
+    }
+
+    function closeAllModals() {
+        document.getElementById('modal-overlay').classList.remove('active');
+        document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
+    }
+
+    // --- E. SCIENTIFIC CALC TOGGLE ---
+    function toggleCalc() {
+        document.getElementById('scientific-dock').classList.toggle('active');
+    }
+
+    // --- F. SCROLL TO TOP ---
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('scroll-top-btn');
+        if(btn) {
+            if (window.scrollY > 300) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'all';
+            } else {
+                btn.style.opacity = '0';
+                btn.style.pointerEvents = 'none';
+            }
+        }
+    });
+    
+    // --- G. PWA REGISTRATION ---
+    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
+    
+    // --- H. SEARCH ENGINE ---
     const searchInput = document.getElementById('master-search');
     if(searchInput) {
         searchInput.addEventListener('keyup', function() {
@@ -3646,34 +3675,13 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
                     card.style.display = "none";
                 }
             });
-            
-            // Update the status text
             const status = document.getElementById('search-count');
             if(status) status.innerText = filter === "" ? "Ready" : `${visibleCount} Found`;
         });
     }
-
-    // --- E. SCIENTIFIC CALC TOGGLE ---
-    function toggleCalc() {
-        const dock = document.getElementById('scientific-dock');
-        dock.classList.toggle('active');
-    }
-
-    // --- F. SCROLL TO TOP ---
-    window.addEventListener('scroll', () => {
-        const btn = document.getElementById('scroll-top-btn');
-        if(btn) {
-            if (window.scrollY > 300) {
-                btn.style.opacity = '1';
-                btn.style.pointerEvents = 'all';
-            } else {
-                btn.style.opacity = '0';
-                btn.style.pointerEvents = 'none';
-            }
-        }
-    });
-
-        /* === 1. ULTRA-PREMIUM FOOTER === */
+    
+    document.getElementById('year-span').innerText = new Date().getFullYear();
+    /* === 1. ULTRA-PREMIUM FOOTER (Breathtaking UI) === */
 .app-footer {
     position: relative; z-index: 10;
     margin-top: 80px; 
@@ -3783,86 +3791,29 @@ body.dark-mode .app-footer {
 }
 .close-modal:hover { background: var(--danger); color: white; transform: rotate(90deg); }
 
-    
-    // --- H. PWA REGISTRATION ---
-    if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js');
-</script>
-
-<style>
-    /* CRITICAL LAYOUT FIXES FOR FOOTER & BUTTONS */
-    #scroll-top-btn {
-        position: fixed; bottom: 90px; right: 20px;
-        width: 50px; height: 50px; border-radius: 50%;
-        background: var(--primary); color: white; border: none;
-        box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
-        z-index: 9000; cursor: pointer; opacity: 0; pointer-events: none;
-        transition: 0.3s; display: flex; align-items: center; justify-content: center;
-    }
-    
-    .app-footer {
-        position: relative; z-index: 10;
-        margin-top: 50px; padding-bottom: 120px; /* Space for Calc */
-        background: var(--card-glass);
-        border-top: 1px solid var(--border-glass);
-    }
-    /* === FIXED CALCULATOR DOCK (The Drawer Logic) === */
+/* === 3. FIXED CALCULATOR DRAWER === */
 .calc-dock {
-    position: fixed;
-    bottom: 0; 
-    left: 0; 
-    width: 100%;
-    
-    /* 1. Force it to sit ON TOP of footer when open */
-    z-index: 8000 !important; 
-    
-    /* 2. HIDE IT by pushing it 100% down (off-screen) */
-    transform: translateY(100%); 
-    
-    /* 3. Smooth Slide Animation */
+    position: fixed; bottom: 0; left: 0; width: 100%;
+    z-index: 8000 !important; /* Above footer, below modal */
+    transform: translateY(100%); /* Hidden by default */
     transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    
-    /* Visual styling */
-    background: var(--card-glass);
-    backdrop-filter: blur(30px);
+    background: var(--card-glass); backdrop-filter: blur(30px);
     border-top: 1px solid var(--border-glass);
     border-radius: 30px 30px 0 0;
     box-shadow: 0 -10px 40px rgba(0,0,0,0.2);
 }
+.calc-dock.active { transform: translateY(0) !important; }
 
-/* This class pulls it back up when you click the button */
-.calc-dock.active {
-    transform: translateY(0) !important;
+/* === 4. FIXED SCROLL BUTTON === */
+#scroll-top-btn {
+    position: fixed; bottom: 90px; right: 20px;
+    width: 50px; height: 50px; border-radius: 50%;
+    background: var(--primary); color: white; border: none;
+    box-shadow: 0 5px 15px var(--primary-glow);
+    z-index: 9000; cursor: pointer;
+    opacity: 0; pointer-events: none; transition: 0.3s;
+    display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
 }
-
-/* Handle Design */
-.calc-handle {
-    padding: 15px; text-align: center; cursor: pointer;
-    color: var(--primary); font-weight: 700;
-    }
-        // --- SCIENTIFIC CALC TOGGLE ---
-    function toggleCalc() {
-        const dock = document.getElementById('scientific-dock');
-        dock.classList.toggle('active'); // This triggers the slide up/down
-    }
-        // --- UPDATED MODAL CONTROLLER (Fixes "Nothing Happens") ---
-    function openModal(id) {
-        const overlay = document.getElementById('modal-overlay');
-        const modal = document.getElementById(id);
-        
-        if (overlay && modal) {
-            overlay.classList.add('active');
-            modal.classList.add('active');
-            // Z-Index override to ensure it pops over the footer/calc
-            modal.style.zIndex = '10001'; 
-            overlay.style.zIndex = '10000';
-        } else {
-            console.error('Target modal not found:', id);
-        }
-    }
-
-    function closeAllModals() {
-        document.getElementById('modal-overlay').classList.remove('active');
-        document.querySelectorAll('.modal-window').forEach(m => m.classList.remove('active'));
-    }
+#scroll-top-btn.visible { opacity: 1; pointer-events: all; }
     
-</style>
+</script>
