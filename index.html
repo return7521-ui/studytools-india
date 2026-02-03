@@ -219,12 +219,12 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     
     <header class="main-header">
     <div class="container header-content">
-                <div class="logo-area">
-            <div class="logo-icon dynamic-logo">
-                <i class="fas fa-atom"></i>
+        <div class="logo-area">
+            <div class="logo-icon">
+                <i class="fas fa-microchip"></i>
             </div>
             <div class="logo-text">
-                STUDYTOOLS <span class="accent dynamic-brand">INDIA</span>
+                STUDYTOOLS <span class="accent">INDIA</span>
             </div>
         </div>
 
@@ -277,7 +277,26 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     .header-content { display: flex; justify-content: space-between; align-items: center; }
 
     .logo-area { display: flex; align-items: center; gap: 12px; }
-    
+    .logo-icon {
+        width: 40px; height: 40px; background: var(--primary);
+        color: white; border-radius: 10px; display: flex;
+        align-items: center; justify-content: center; font-size: 1.2rem;
+        box-shadow: 0 8px 16px var(--primary-glow);
+    }
+
+    .logo-text {
+        font-family: 'Orbitron', sans-serif; font-weight: 800; font-size: 1.1rem;
+        letter-spacing: 1px; color: var(--text-main);
+    }
+    body.dark-mode .logo-text { color: white; }
+    .logo-text .accent { color: var(--primary); }
+
+    .action-btn {
+        width: 40px; height: 40px; border-radius: 10px; border: 1px solid var(--border-glass);
+        background: white; cursor: pointer; color: var(--text-main); transition: var(--transition);
+    }
+    body.dark-mode .action-btn { background: #1e293b; color: white; }
+    .action-btn:hover { transform: translateY(-2px); border-color: var(--primary); }
 
     /* --- NAV DOCK & SEARCH --- */
     .nav-dock { padding: 30px 0 10px; }
@@ -293,54 +312,7 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     .search-icon { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); color: var(--primary); }
     
     #master-search {
-        width: 100%;     /* === ULTRA-PROFESSIONAL LOGO === */
-    .dynamic-logo {
-        width: 48px; height: 48px;
-        /* Dynamic Gradient: Indigo to Purple */
-        background: linear-gradient(135deg, var(--primary), #a855f7);
-        color: white; 
-        border-radius: 14px; /* Modern Squircle Shape */
-        display: flex; align-items: center; justify-content: center;
-        font-size: 1.5rem;
-        box-shadow: 0 0 20px var(--primary-glow);
-        position: relative;
-        overflow: hidden;
-        transition: all 0.3s ease;
-        animation: logoPulse 3s infinite alternate;
-    }
-
-    /* The Spinning Atom */
-    .dynamic-logo i {
-        animation: atomSpin 8s linear infinite;
-        filter: drop-shadow(0 0 5px rgba(255,255,255,0.6));
-    }
-
-    /* Brand Text Gradient */
-    .dynamic-brand {
-        background: linear-gradient(90deg, var(--primary), #ec4899);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        font-weight: 900;
-        letter-spacing: 1px;
-    }
-
-    /* Hover Effect: "Supercharge" */
-    .logo-area:hover .dynamic-logo {
-        transform: scale(1.1) rotate(5deg);
-        box-shadow: 0 0 35px var(--primary);
-    }
-
-    /* === ANIMATIONS === */
-    @keyframes atomSpin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-    }
-
-    @keyframes logoPulse {
-        0% { box-shadow: 0 0 15px var(--primary-glow); border: 1px solid rgba(255,255,255,0.2); }
-        100% { box-shadow: 0 0 30px rgba(168, 85, 247, 0.5); border: 1px solid rgba(255,255,255,0.5); }
-    }
-padding: 15px 15px 15px 50px; border: none; background: transparent;
+        width: 100%; padding: 15px 15px 15px 50px; border: none; background: transparent;
         font-size: 1rem; font-family: inherit; color: inherit;
     }
 
