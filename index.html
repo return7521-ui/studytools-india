@@ -425,16 +425,7 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     }
 
 
-    .calc-screen {
-        background: rgba(0,0,0,0.05); border-radius: 15px;
-        padding: 20px; margin-bottom: 20px; text-align: right;
-        border: 1px solid var(--border-glass);
-    }
-    body.dark-mode .calc-screen { background: rgba(255,255,255,0.03); }
-
-    .calc-history { font-family: 'Roboto Mono', monospace; font-size: 0.8rem; color: var(--text-dim); min-height: 1.2rem; }
-    .calc-main-display { font-family: 'Roboto Mono', monospace; font-size: 1.8rem; font-weight: 700; margin-top: 5px; overflow-x: auto; }
-
+    
     .calc-keypad {
         display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;
     }
@@ -449,7 +440,44 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
     .sc-key { background: rgba(99, 102, 241, 0.1); color: var(--primary); font-size: 0.8rem; }
     .clear-key { background: #ef4444; color: white; }
 
-    body.dark-mode .num-key { background: #1e293b; color: white; }
+    body.dark-mode    /* --- FIXED CALCULATOR DISPLAY (Desktop Wraps Text) --- */
+    .calc-screen {
+        background: rgba(0,0,0,0.05); 
+        border-radius: 15px;
+        padding: 20px; 
+        margin-bottom: 20px; 
+        text-align: right;
+        border: 1px solid var(--border-glass);
+        /* Ensures layout stability */
+        display: flex; 
+        flex-direction: column; 
+        justify-content: flex-end;
+    }
+    body.dark-mode .calc-screen { background: rgba(255,255,255,0.03); }
+
+    .calc-history { 
+        font-family: 'Roboto Mono', monospace; 
+        font-size: 0.8rem; 
+        color: var(--text-dim); 
+        min-height: 1.2rem;
+        /* Fix: Allow history to wrap */
+        white-space: normal; 
+        word-break: break-all; 
+    }
+
+    .calc-main-display { 
+        font-family: 'Roboto Mono', monospace; 
+        font-size: 1.8rem; 
+        font-weight: 700; 
+        margin-top: 5px; 
+        
+        /* CRITICAL FIX: Wrap long numbers on Desktop */
+        white-space: normal;       /* Allows multi-line text */
+        word-break: break-all;     /* Breaks long numbers (like 3.1415...) */
+        overflow-wrap: break-word; /* Ensures it stays inside the box */
+        overflow-x: hidden;        /* Removes the ugly scrollbar */
+    }
+ .num-key { background: #1e293b; color: white; }
 
     .key:active { transform: scale(0.9); }
 </style>
