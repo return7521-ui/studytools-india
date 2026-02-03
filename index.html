@@ -356,7 +356,12 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
             <div class="calc-main-display" id="calc-display">0</div>
         </div>
 
-        <div class="calc-keypad">
+                <div class="calc-keypad">
+            <button class="key clear-key" onclick="clearCalc()">AC</button>
+            <button class="key sc-key" onclick="deleteLast()" style="color:var(--danger); font-weight:900;">⌫</button>
+            <button class="key sc-key" onclick="appendCalc('(')">(</button>
+            <button class="key sc-key" onclick="appendCalc(')')">)</button>
+
             <button class="key sc-key" onclick="appendCalc('Math.sin(')">sin</button>
             <button class="key sc-key" onclick="appendCalc('Math.cos(')">cos</button>
             <button class="key sc-key" onclick="appendCalc('Math.tan(')">tan</button>
@@ -382,7 +387,7 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
             <button class="key num-key" onclick="appendCalc('3')">3</button>
             <button class="key op-key" onclick="appendCalc('-')">−</button>
 
-            <button class="key clear-key" onclick="clearCalc()">AC</button>
+            <button class="key num-key" onclick="appendCalc('.')">.</button>
             <button class="key num-key" onclick="appendCalc('0')">0</button>
             <button class="key op-key" onclick="calculateResult()">=</button>
             <button class="key op-key" onclick="appendCalc('+')">+</button>
@@ -412,7 +417,13 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
         border-radius: 10px; margin: 0 auto 8px; opacity: 0.3;
     }
 
-    .calc-container { padding: 0 20px 20px; max-width: 500px; margin: 0 auto; }
+        /* Updated Container with Bottom Padding */
+    .calc-container { 
+        padding: 0 20px 90px; /* Added 90px padding at bottom so FAB doesn't hide keys */
+        max-width: 500px; 
+        margin: 0 auto; 
+    }
+
 
     .calc-screen {
         background: rgba(0,0,0,0.05); border-radius: 15px;
@@ -460,7 +471,13 @@ body.dark-mode .tech-badge { background: rgba(255,255,255,0.05); color: white; }
         document.getElementById('calc-display').innerText = "0";
         document.getElementById('calc-history').innerText = "";
     }
-
+    // Add this function to delete the last character
+    function deleteLast() {
+        calcExpression = String(calcExpression); // Ensure it's a string
+        calcExpression = calcExpression.slice(0, -1);
+        document.getElementById('calc-display').innerText = calcExpression || "0";
+    }
+    
     function calculateResult() {
         try {
             const result = eval(calcExpression.replace('×', '*').replace('÷', '/'));
